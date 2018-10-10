@@ -1,17 +1,15 @@
-# JJEvent
+# JJEvent -- 一个经过测试和线上验证的Android客户端数据埋点SDK
 
 
 [![License](https://img.shields.io/badge/license-Apache%202-green.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 ![](https://img.shields.io/travis/rust-lang/rust/master.svg)
 [![](https://img.shields.io/badge/release-1.0.0-brightgreen.svg)](https://github.com/ccj659/JJEvent/releases)
 [![Author](https://img.shields.io/badge/autor-ccj659-brightgreen.svg)](https://github.com/ccj659)
-![Platform](https://img.shields.io/badge/Platform-%20iOS%20%7C%20Android-brightgreen.svg)
+![Platform](https://img.shields.io/badge/Platform-Android-brightgreen.svg)
 
 
 
-**一个经过测试和线上验证的Android客户端数据埋点SDK**
 
-![jjEvent.gif](https://upload-images.jianshu.io/upload_images/1848340-6ffaee49dfa99be1.gif?imageMogr2/auto-orient/strip)
 
 
 -----
@@ -23,6 +21,10 @@
 
 
 ------
+
+
+
+![jjEvent.gif](https://upload-images.jianshu.io/upload_images/1848340-6ffaee49dfa99be1.gif?imageMogr2/auto-orient/strip)
 
 
 
