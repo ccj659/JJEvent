@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <TextView
+        android:id="@+id/tv_show"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="JJEvent Demo"
+        />
+
+    <Button
+        android:id="@+id/btn_event"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="点击事件"
+        android:layout_centerInParent="true"
+        />
+
+    <Button
+        android:id="@+id/btn_push"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/linearLayout"
+        android:layout_marginEnd="13dp"
+        android:layout_marginRight="13dp"
+        android:text="主动推送" />
+    <Button
+        android:id="@+id/btn_pv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_event"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="43dp"
+        android:text="屏幕事件" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_alignEnd="@+id/btn_pv"
+        android:layout_alignRight="@+id/btn_pv"
+        android:layout_below="@+id/btn_pv"
+        android:layout_marginTop="35dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/linearLayout">
+        <Button
+            android:id="@+id/btn_start"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="开启push服务" />
+
+        <Button
+            android:id="@+id/btn_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="停止push服务" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="97dp"
+        android:text="启动和记录过程请看Logcat日志" />
+
+
+</RelativeLayout>

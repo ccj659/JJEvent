@@ -1,0 +1,1264 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Lint Report</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+ <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.blue-indigo.min.css" />
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
+<script defer src="https://code.getmdl.io/1.2.0/material.min.js"></script>
+<style>
+section.section--center {
+    max-width: 860px;
+}
+.mdl-card__supporting-text + .mdl-card__actions {
+    border-top: 1px solid rgba(0, 0, 0, 0.12);
+}
+main > .mdl-layout__tab-panel {
+  padding: 8px;
+  padding-top: 48px;
+}
+
+.mdl-card__actions {
+    margin: 0;
+    padding: 4px 40px;
+    color: inherit;
+}
+.mdl-card > * {
+    height: auto;
+}
+.mdl-card__actions a {
+    color: #00BCD4;
+    margin: 0;
+}
+.error-icon {
+    color: #bb7777;
+    vertical-align: bottom;
+}
+.warning-icon {
+    vertical-align: bottom;
+}
+.mdl-layout__content section:not(:last-of-type) {
+  position: relative;
+  margin-bottom: 48px;
+}
+
+.mdl-card .mdl-card__supporting-text {
+  margin: 40px;
+  -webkit-flex-grow: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  padding: 0;
+  color: inherit;
+  width: calc(100% - 80px);
+}
+div.mdl-layout__drawer-button .material-icons {
+    line-height: 48px;
+}
+.mdl-card .mdl-card__supporting-text {
+    margin-top: 0px;
+}
+.chips {
+    float: right;
+    vertical-align: middle;
+}
+pre.errorlines {
+    background-color: white;
+    font-family: monospace;
+    border: 1px solid #e0e0e0;
+    line-height: 0.9rem;
+    font-size: 0.9rem;    padding: 1px 0px 1px; 1px;
+    overflow: scroll;
+}
+.prefix {
+    color: #660e7a;
+    font-weight: bold;
+}
+.attribute {
+    color: #0000ff;
+    font-weight: bold;
+}
+.value {
+    color: #008000;
+    font-weight: bold;
+}
+.tag {
+    color: #000080;
+    font-weight: bold;
+}
+.comment {
+    color: #808080;
+    font-style: italic;
+}
+.javadoc {
+    color: #808080;
+    font-style: italic;
+}
+.annotation {
+    color: #808000;
+}
+.string {
+    color: #008000;
+    font-weight: bold;
+}
+.number {
+    color: #0000ff;
+}
+.keyword {
+    color: #000080;
+    font-weight: bold;
+}
+.caretline {
+    background-color: #fffae3;
+}
+.lineno {
+    color: #999999;
+    background-color: #f0f0f0;
+}
+.error {
+    display: inline-block;
+    position:relative;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4AwCFR4T/3uLMgAAADxJREFUCNdNyLERQEAABMCjL4lQwIzcjErpguAL+C9AvgKJDbeD/PRpLdm35Hm+MU+cB+tCKaJW4L4YBy+CAiLJrFs9mgAAAABJRU5ErkJggg==) bottom repeat-x;
+}
+.warning {
+    text-decoration: none;
+    background-color: #f6ebbc;
+}
+.overview {
+    padding: 10pt;
+    width: 100%;
+    overflow: auto;
+    border-collapse:collapse;
+}
+.overview tr {
+    border-bottom: solid 1px #eeeeee;
+}
+.categoryColumn a {
+     text-decoration: none;
+     color: inherit;
+}
+.countColumn {
+    text-align: right;
+    padding-right: 20px;
+    width: 50px;
+}
+.issueColumn {
+   padding-left: 16px;
+}
+.categoryColumn {
+   position: relative;
+   left: -50px;
+   padding-top: 20px;
+   padding-bottom: 5px;
+}
+</style>
+<script language="javascript" type="text/javascript"> 
+<!--
+function reveal(id) {
+if (document.getElementById) {
+document.getElementById(id).style.display = 'block';
+document.getElementById(id+'Link').style.display = 'none';
+}
+}
+function hideid(id) {
+if (document.getElementById) {
+document.getElementById(id).style.display = 'none';
+}
+}
+//--> 
+</script>
+</head>
+<body class="mdl-color--grey-100 mdl-color-text--grey-700 mdl-base">
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <span class="mdl-layout-title">Lint Report: 1 error and 32 warnings</span>
+      <div class="mdl-layout-spacer"></div>
+      <nav class="mdl-navigation mdl-layout--large-screen-only">
+Check performed at Wed Oct 10 16:18:32 CST 2018      </nav>
+    </div>
+  </header>
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">Issue Types</span>
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link" href="#overview"><i class="material-icons">dashboard</i>Overview</a>
+      <a class="mdl-navigation__link" href="#MissingPermission"><i class="material-icons error-icon">error</i>Missing Permissions (1)</a>
+      <a class="mdl-navigation__link" href="#ApplySharedPref"><i class="material-icons warning-icon">warning</i>Use <code>apply()</code> on <code>SharedPreferences</code> (1)</a>
+      <a class="mdl-navigation__link" href="#Assert"><i class="material-icons warning-icon">warning</i>Assertions (8)</a>
+      <a class="mdl-navigation__link" href="#CommitPrefEdits"><i class="material-icons warning-icon">warning</i>Missing <code>commit()</code> on <code>SharedPreference</code> editor (1)</a>
+      <a class="mdl-navigation__link" href="#DefaultLocale"><i class="material-icons warning-icon">warning</i>Implied default locale in case conversion (12)</a>
+      <a class="mdl-navigation__link" href="#OldTargetApi"><i class="material-icons warning-icon">warning</i>Target SDK attribute is not targeting latest version (1)</a>
+      <a class="mdl-navigation__link" href="#SimpleDateFormat"><i class="material-icons warning-icon">warning</i>Implied locale in date format (6)</a>
+      <a class="mdl-navigation__link" href="#HardwareIds"><i class="material-icons warning-icon">warning</i>Hardware Id Usage (1)</a>
+      <a class="mdl-navigation__link" href="#ObsoleteSdkInt"><i class="material-icons warning-icon">warning</i>Obsolete SDK_INT Version Check (2)</a>
+    </nav>
+  </div>
+  <main class="mdl-layout__content">
+    <div class="mdl-layout__tab-panel is-active">
+<a name="overview"></a>
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="OverviewCard" style="display: block;">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Overview</h2>
+  </div>
+              <div class="mdl-card__supporting-text">
+<table class="overview">
+<tr><td class="countColumn"></td><td class="categoryColumn"><a href="#Correctness">Correctness</a>
+</td></tr>
+<tr>
+<td class="countColumn">1</td><td class="issueColumn"><i class="material-icons error-icon">error</i>
+<a href="#MissingPermission">MissingPermission</a>: Missing Permissions</td></tr>
+<tr>
+<td class="countColumn">1</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
+<a href="#ApplySharedPref">ApplySharedPref</a>: Use <code>apply()</code> on <code>SharedPreferences</code></td></tr>
+<tr>
+<td class="countColumn">8</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
+<a href="#Assert">Assert</a>: Assertions</td></tr>
+<tr>
+<td class="countColumn">1</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
+<a href="#CommitPrefEdits">CommitPrefEdits</a>: Missing <code>commit()</code> on <code>SharedPreference</code> editor</td></tr>
+<tr>
+<td class="countColumn">12</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
+<a href="#DefaultLocale">DefaultLocale</a>: Implied default locale in case conversion</td></tr>
+<tr>
+<td class="countColumn">1</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
+<a href="#OldTargetApi">OldTargetApi</a>: Target SDK attribute is not targeting latest version</td></tr>
+<tr>
+<td class="countColumn">6</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
+<a href="#SimpleDateFormat">SimpleDateFormat</a>: Implied locale in date format</td></tr>
+<tr><td class="countColumn"></td><td class="categoryColumn"><a href="#Security">Security</a>
+</td></tr>
+<tr>
+<td class="countColumn">1</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
+<a href="#HardwareIds">HardwareIds</a>: Hardware Id Usage</td></tr>
+<tr><td class="countColumn"></td><td class="categoryColumn"><a href="#Performance">Performance</a>
+</td></tr>
+<tr>
+<td class="countColumn">2</td><td class="issueColumn"><i class="material-icons warning-icon">warning</i>
+<a href="#ObsoleteSdkInt">ObsoleteSdkInt</a>: Obsolete SDK_INT Version Check</td></tr>
+<tr><td></td><td class="categoryColumn"><a href="#MissingIssues">Disabled Checks (23)</a>
+</td></tr></table>
+<br/>              </div>
+              <div class="mdl-card__actions mdl-card--border">
+<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="OverviewCardLink" onclick="hideid('OverviewCard');">
+Dismiss</button>            </div>
+            </div>
+          </section>
+<a name="Correctness"></a>
+<a name="MissingPermission"></a>
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="MissingPermissionCard" style="display: block;">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Missing Permissions</h2>
+  </div>
+              <div class="mdl-card__supporting-text">
+<div class="issue">
+<div class="warningslist">
+<span class="location"><a href="../../src/main/java/com/ccj/client/android/analytics/utils/EDeviceUtils.java">../../src/main/java/com/ccj/client/android/analytics/utils/EDeviceUtils.java</a>:199</span>: <span class="message">Missing permissions required by ConnectivityManager.getActiveNetworkInfo: android.permission.ACCESS_NETWORK_STATE</span><br /><pre class="errorlines">
+<span class="lineno"> 196 </span>        <span class="keyword">if</span> (<span class="keyword">null</span> == connectivityManager) {
+<span class="lineno"> 197 </span>            <span class="keyword">return</span> <span class="keyword">false</span>;
+<span class="lineno"> 198 </span>        }
+<span class="caretline"><span class="lineno"> 199 </span>        NetworkInfo networkInfo = <span class="error">connectivityManager.getActiveNetworkInfo()</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 200 </span>        <span class="keyword">return</span> (<span class="keyword">null</span> != networkInfo &amp;&amp; networkInfo.isConnected());
+<span class="lineno"> 201 </span>    }
+</pre>
+
+</div>
+<div class="metadata"><div class="explanation" id="explanationMissingPermission" style="display: none;">
+This check scans through your code and libraries and looks at the APIs being used, and checks this against the set of permissions required to access those APIs. If the code using those APIs is called at runtime, then the program will crash.<br/>
+<br/>
+Furthermore, for permissions that are revocable (with targetSdkVersion 23), client code must also be prepared to handle the calls throwing an exception if the user rejects the request for permission at runtime.<br/>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+To suppress this error, use the issue id "MissingPermission" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="chips">
+<span class="mdl-chip">
+    <span class="mdl-chip__text">MissingPermission</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Correctness</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Error</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Priority 9/10</span>
+</span>
+</div>
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationMissingPermissionLink" onclick="reveal('explanationMissingPermission');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="MissingPermissionCardLink" onclick="hideid('MissingPermissionCard');">
+Dismiss</button>            </div>
+            </div>
+          </section><a name="ApplySharedPref"></a>
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="ApplySharedPrefCard" style="display: block;">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Use apply() on SharedPreferences</h2>
+  </div>
+              <div class="mdl-card__supporting-text">
+<div class="issue">
+<div class="warningslist">
+<span class="location"><a href="../../src/main/java/com/ccj/client/android/analytics/utils/EDeviceUtils.java">../../src/main/java/com/ccj/client/android/analytics/utils/EDeviceUtils.java</a>:236</span>: <span class="message">Consider using <code>apply()</code> instead; <code>commit</code> writes its data to persistent storage immediately, whereas <code>apply</code> will handle it in the background</span><br /><pre class="errorlines">
+<span class="lineno"> 233 </span>                context.getSharedPreferences(SHAREDPREF_NAME, Context.MODE_PRIVATE);
+<span class="lineno"> 234 </span>
+<span class="lineno"> 235 </span>        preferences.edit().putString(SHAREDPREF_KEY, deviceId);
+<span class="caretline"><span class="lineno"> 236 </span>        <span class="warning">preferences.edit().commit()</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 237 </span>
+<span class="lineno"> 238 </span>    }
+</pre>
+
+</div>
+<div class="metadata"><div class="explanation" id="explanationApplySharedPref" style="display: none;">
+Consider using <code>apply()</code> instead of <code>commit</code> on shared preferences. Whereas <code>commit</code> blocks and writes its data to persistent storage immediately, <code>apply</code> will handle it in the background.<br/>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+To suppress this error, use the issue id "ApplySharedPref" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="chips">
+<span class="mdl-chip">
+    <span class="mdl-chip__text">ApplySharedPref</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Correctness</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Warning</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Priority 6/10</span>
+</span>
+</div>
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationApplySharedPrefLink" onclick="reveal('explanationApplySharedPref');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="ApplySharedPrefCardLink" onclick="hideid('ApplySharedPrefCard');">
+Dismiss</button>            </div>
+            </div>
+          </section><a name="Assert"></a>
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="AssertCard" style="display: block;">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Assertions</h2>
+  </div>
+              <div class="mdl-card__supporting-text">
+<div class="issue">
+<div class="warningslist">
+<span class="location"><a href="../../src/main/java/com/ccj/client/android/analytics/net/gson/internal/LinkedHashTreeMap.java">../../src/main/java/com/ccj/client/android/analytics/net/gson/internal/LinkedHashTreeMap.java</a>:322</span>: <span class="message">Assertions are unreliable in Dalvik and unimplemented in ART. Use <code>BuildConfig.DEBUG</code> conditional checks instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 319 </span>      <span class="keyword">if</span> (parent.left == node) {
+<span class="lineno"> 320 </span>        parent.left = replacement;
+<span class="lineno"> 321 </span>      } <span class="keyword">else</span> {
+<span class="caretline"><span class="lineno"> 322 </span>        <span class="warning"><span class="keyword">assert</span></span> (parent.right == node);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 323 </span>        parent.right = replacement;
+<span class="lineno"> 324 </span>      }
+<span class="lineno"> 325 </span>    } <span class="keyword">else</span> {
+</pre>
+
+<span class="location"><a href="../../src/main/java/com/ccj/client/android/analytics/net/gson/internal/LinkedHashTreeMap.java">../../src/main/java/com/ccj/client/android/analytics/net/gson/internal/LinkedHashTreeMap.java</a>:356</span>: <span class="message">Assertions are unreliable in Dalvik and unimplemented in ART. Use <code>BuildConfig.DEBUG</code> conditional checks instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 353 </span>        <span class="keyword">if</span> (rightDelta == -<span class="number">1</span> || (rightDelta == <span class="number">0</span> &amp;&amp; !insert)) {
+<span class="lineno"> 354 </span>          rotateLeft(node); <span class="comment">// AVL right right</span>
+<span class="lineno"> 355 </span>        } <span class="keyword">else</span> {
+<span class="caretline"><span class="lineno"> 356 </span>          <span class="warning"><span class="keyword">assert</span></span> (rightDelta == <span class="number">1</span>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 357 </span>          rotateRight(right); <span class="comment">// AVL right left</span>
+<span class="lineno"> 358 </span>          rotateLeft(node);
+<span class="lineno"> 359 </span>        }
+</pre>
+
+<span class="location"><a href="../../src/main/java/com/ccj/client/android/analytics/net/gson/internal/LinkedHashTreeMap.java">../../src/main/java/com/ccj/client/android/analytics/net/gson/internal/LinkedHashTreeMap.java</a>:374</span>: <span class="message">Assertions are unreliable in Dalvik and unimplemented in ART. Use <code>BuildConfig.DEBUG</code> conditional checks instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 371 </span>        <span class="keyword">if</span> (leftDelta == <span class="number">1</span> || (leftDelta == <span class="number">0</span> &amp;&amp; !insert)) {
+<span class="lineno"> 372 </span>          rotateRight(node); <span class="comment">// AVL left left</span>
+<span class="lineno"> 373 </span>        } <span class="keyword">else</span> {
+<span class="caretline"><span class="lineno"> 374 </span>          <span class="warning"><span class="keyword">assert</span></span> (leftDelta == -<span class="number">1</span>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 375 </span>          rotateLeft(left); <span class="comment">// AVL left right</span>
+<span class="lineno"> 376 </span>          rotateRight(node);
+<span class="lineno"> 377 </span>        }
+</pre>
+
+<span class="location"><a href="../../src/main/java/com/ccj/client/android/analytics/net/gson/internal/LinkedHashTreeMap.java">../../src/main/java/com/ccj/client/android/analytics/net/gson/internal/LinkedHashTreeMap.java</a>:389</span>: <span class="message">Assertions are unreliable in Dalvik and unimplemented in ART. Use <code>BuildConfig.DEBUG</code> conditional checks instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 386 </span>        }
+<span class="lineno"> 387 </span>
+<span class="lineno"> 388 </span>      } <span class="keyword">else</span> {
+<span class="caretline"><span class="lineno"> 389 </span>        <span class="warning"><span class="keyword">assert</span></span> (delta == -<span class="number">1</span> || delta == <span class="number">1</span>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 390 </span>        node.height = Math.max(leftHeight, rightHeight) + <span class="number">1</span>;
+<span class="lineno"> 391 </span>        <span class="keyword">if</span> (!insert) {
+<span class="lineno"> 392 </span>          <span class="keyword">break</span>; <span class="comment">// the height hasn't changed, so rebalancing is done!</span></pre>
+
+<span class="location"><a href="../../src/main/java/com/ccj/client/android/analytics/net/gson/internal/LinkedTreeMap.java">../../src/main/java/com/ccj/client/android/analytics/net/gson/internal/LinkedTreeMap.java</a>:295</span>: <span class="message">Assertions are unreliable in Dalvik and unimplemented in ART. Use <code>BuildConfig.DEBUG</code> conditional checks instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 292 </span>      <span class="keyword">if</span> (parent.left == node) {
+<span class="lineno"> 293 </span>        parent.left = replacement;
+<span class="lineno"> 294 </span>      } <span class="keyword">else</span> {
+<span class="caretline"><span class="lineno"> 295 </span>        <span class="warning"><span class="keyword">assert</span></span> (parent.right == node);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 296 </span>        parent.right = replacement;
+<span class="lineno"> 297 </span>      }
+<span class="lineno"> 298 </span>    } <span class="keyword">else</span> {
+</pre>
+
+<span class="location"><a href="../../src/main/java/com/ccj/client/android/analytics/net/gson/internal/LinkedTreeMap.java">../../src/main/java/com/ccj/client/android/analytics/net/gson/internal/LinkedTreeMap.java</a>:328</span>: <span class="message">Assertions are unreliable in Dalvik and unimplemented in ART. Use <code>BuildConfig.DEBUG</code> conditional checks instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 325 </span>        <span class="keyword">if</span> (rightDelta == -<span class="number">1</span> || (rightDelta == <span class="number">0</span> &amp;&amp; !insert)) {
+<span class="lineno"> 326 </span>          rotateLeft(node); <span class="comment">// AVL right right</span>
+<span class="lineno"> 327 </span>        } <span class="keyword">else</span> {
+<span class="caretline"><span class="lineno"> 328 </span>          <span class="warning"><span class="keyword">assert</span></span> (rightDelta == <span class="number">1</span>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 329 </span>          rotateRight(right); <span class="comment">// AVL right left</span>
+<span class="lineno"> 330 </span>          rotateLeft(node);
+<span class="lineno"> 331 </span>        }
+</pre>
+
+<span class="location"><a href="../../src/main/java/com/ccj/client/android/analytics/net/gson/internal/LinkedTreeMap.java">../../src/main/java/com/ccj/client/android/analytics/net/gson/internal/LinkedTreeMap.java</a>:346</span>: <span class="message">Assertions are unreliable in Dalvik and unimplemented in ART. Use <code>BuildConfig.DEBUG</code> conditional checks instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 343 </span>        <span class="keyword">if</span> (leftDelta == <span class="number">1</span> || (leftDelta == <span class="number">0</span> &amp;&amp; !insert)) {
+<span class="lineno"> 344 </span>          rotateRight(node); <span class="comment">// AVL left left</span>
+<span class="lineno"> 345 </span>        } <span class="keyword">else</span> {
+<span class="caretline"><span class="lineno"> 346 </span>          <span class="warning"><span class="keyword">assert</span></span> (leftDelta == -<span class="number">1</span>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 347 </span>          rotateLeft(left); <span class="comment">// AVL left right</span>
+<span class="lineno"> 348 </span>          rotateRight(node);
+<span class="lineno"> 349 </span>        }
+</pre>
+
+<span class="location"><a href="../../src/main/java/com/ccj/client/android/analytics/net/gson/internal/LinkedTreeMap.java">../../src/main/java/com/ccj/client/android/analytics/net/gson/internal/LinkedTreeMap.java</a>:361</span>: <span class="message">Assertions are unreliable in Dalvik and unimplemented in ART. Use <code>BuildConfig.DEBUG</code> conditional checks instead.</span><br /><pre class="errorlines">
+<span class="lineno"> 358 </span>        }
+<span class="lineno"> 359 </span>
+<span class="lineno"> 360 </span>      } <span class="keyword">else</span> {
+<span class="caretline"><span class="lineno"> 361 </span>        <span class="warning"><span class="keyword">assert</span></span> (delta == -<span class="number">1</span> || delta == <span class="number">1</span>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 362 </span>        node.height = Math.max(leftHeight, rightHeight) + <span class="number">1</span>;
+<span class="lineno"> 363 </span>        <span class="keyword">if</span> (!insert) {
+<span class="lineno"> 364 </span>          <span class="keyword">break</span>; <span class="comment">// the height hasn't changed, so rebalancing is done!</span></pre>
+
+</div>
+<div class="metadata"><div class="explanation" id="explanationAssert" style="display: none;">
+Assertions are not checked at runtime. There are ways to request that they be used by Dalvik (<code>adb shell setprop debug.assert 1</code>), but note that this is not implemented in ART (the newer runtime), and even in Dalvik the property is ignored in many places and can not be relied upon. Instead, perform conditional checking inside <code>if (BuildConfig.DEBUG) { }</code> blocks. That constant is a static final boolean which is true in debug builds and false in release builds, and the Java compiler completely removes all code inside the if-body from the app.<br/>
+<br/>
+For example, you can replace <code>assert speed > 0</code> with <code>if (BuildConfig.DEBUG &amp;&amp; !(speed > 0)) { \<br/>
+throw new AssertionError() }</code>.<br/>
+<br/>
+(Note: This lint check does not flag assertions purely asserting nullness or non-nullness; these are typically more intended for tools usage than runtime checks.)<br/><div class="moreinfo">More info: <a href="https://code.google.com/p/android/issues/detail?id=65183">https://code.google.com/p/android/issues/detail?id=65183</a>
+</div>To suppress this error, use the issue id "Assert" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="chips">
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Assert</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Correctness</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Warning</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Priority 6/10</span>
+</span>
+</div>
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationAssertLink" onclick="reveal('explanationAssert');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="AssertCardLink" onclick="hideid('AssertCard');">
+Dismiss</button>            </div>
+            </div>
+          </section><a name="CommitPrefEdits"></a>
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="CommitPrefEditsCard" style="display: block;">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Missing commit() on SharedPreference editor</h2>
+  </div>
+              <div class="mdl-card__supporting-text">
+<div class="issue">
+<div class="warningslist">
+<span class="location"><a href="../../src/main/java/com/ccj/client/android/analytics/utils/EDeviceUtils.java">../../src/main/java/com/ccj/client/android/analytics/utils/EDeviceUtils.java</a>:235</span>: <span class="message"><code>SharedPreferences.edit()</code> without a corresponding <code>commit()</code> or <code>apply()</code> call</span><br /><pre class="errorlines">
+<span class="lineno"> 232 </span>        SharedPreferences preferences =
+<span class="lineno"> 233 </span>                context.getSharedPreferences(SHAREDPREF_NAME, Context.MODE_PRIVATE);
+<span class="lineno"> 234 </span>
+<span class="caretline"><span class="lineno"> 235 </span>        <span class="warning">preferences.edit()</span>.putString(SHAREDPREF_KEY, deviceId);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 236 </span>        preferences.edit().commit();
+<span class="lineno"> 237 </span>
+<span class="lineno"> 238 </span>    }
+</pre>
+
+</div>
+<div class="metadata"><div class="explanation" id="explanationCommitPrefEdits" style="display: none;">
+After calling <code>edit()</code> on a <code>SharedPreference</code>, you must call <code>commit()</code> or <code>apply()</code> on the editor to save the results.<br/>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+To suppress this error, use the issue id "CommitPrefEdits" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="chips">
+<span class="mdl-chip">
+    <span class="mdl-chip__text">CommitPrefEdits</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Correctness</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Warning</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Priority 6/10</span>
+</span>
+</div>
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationCommitPrefEditsLink" onclick="reveal('explanationCommitPrefEdits');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="CommitPrefEditsCardLink" onclick="hideid('CommitPrefEditsCard');">
+Dismiss</button>            </div>
+            </div>
+          </section><a name="DefaultLocale"></a>
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="DefaultLocaleCard" style="display: block;">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Implied default locale in case conversion</h2>
+  </div>
+              <div class="mdl-card__supporting-text">
+<div class="issue">
+<div class="warningslist">
+<span class="location"><a href="../../src/main/java/com/ccj/client/android/analytics/utils/EDeviceUtils.java">../../src/main/java/com/ccj/client/android/analytics/utils/EDeviceUtils.java</a>:212</span>: <span class="message">Implicitly using the default locale is a common source of bugs: Use <code>toUpperCase(Locale)</code> instead. For strings meant to be internal use <code>Locale.ROOT</code>, otherwise <code>Locale.getDefault()</code>.</span><br /><pre class="errorlines">
+<span class="lineno"> 209 </span>  <span class="keyword">public</span> <span class="keyword">static</span> String getAndroidId(Context context) {
+<span class="lineno"> 210 </span>
+<span class="lineno"> 211 </span>      String androidId = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
+<span class="caretline"><span class="lineno"> 212 </span>      <span class="keyword">return</span> androidId == <span class="keyword">null</span> ? <span class="keyword">null</span> : androidId.<span class="warning">toUpperCase</span>();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 213 </span>  }
+<span class="lineno"> 214 </span></pre>
+
+<span class="location"><a href="../../src/main/java/com/ccj/client/android/analytics/utils/EDeviceUtils.java">../../src/main/java/com/ccj/client/android/analytics/utils/EDeviceUtils.java</a>:222</span>: <span class="message">Implicitly using the default locale is a common source of bugs: Use <code>toUpperCase(Locale)</code> instead. For strings meant to be internal use <code>Locale.ROOT</code>, otherwise <code>Locale.getDefault()</code>.</span><br /><pre class="errorlines">
+<span class="lineno"> 219 </span><span class="javadoc">     * @return
+</span><span class="lineno"> 220 </span><span class="javadoc">     */</span>
+<span class="lineno"> 221 </span>    <span class="keyword">private</span> <span class="keyword">static</span> String generateDeviceId() {
+<span class="caretline"><span class="lineno"> 222 </span>        <span class="keyword">return</span> UUID.randomUUID().toString().replace(<span class="string">"-"</span>, <span class="string">""</span>).<span class="warning">toUpperCase</span>();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 223 </span>    }
+<span class="lineno"> 224 </span>
+<span class="lineno"> 225 </span>    <span class="javadoc">/**
+</span></pre>
+
+<span class="location"><a href="../../src/main/java/com/ccj/client/android/analytics/utils/EMD5Utils.java">../../src/main/java/com/ccj/client/android/analytics/utils/EMD5Utils.java</a>:26</span>: <span class="message">Implicitly using the default locale is a common source of bugs: Use <code>toLowerCase(Locale)</code> instead. For strings meant to be internal use <code>Locale.ROOT</code>, otherwise <code>Locale.getDefault()</code>.</span><br /><pre class="errorlines">
+<span class="lineno"> 23 </span>                    str[k++] = hexDigits[byte0 >>> <span class="number">4</span> &amp; <span class="number">0xf</span>];
+<span class="lineno"> 24 </span>                    str[k++] = hexDigits[byte0 &amp; <span class="number">0xf</span>];
+<span class="lineno"> 25 </span>                }
+<span class="caretline"><span class="lineno"> 26 </span>                <span class="keyword">return</span> <span class="keyword">new</span> String(str).<span class="warning">toLowerCase</span>();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 27 </span>            } <span class="keyword">catch</span> (Exception e) {
+<span class="lineno"> 28 </span>                e.printStackTrace();
+<span class="lineno"> 29 </span>                <span class="keyword">return</span> <span class="string">""</span>;
+</pre>
+
+<span class="location"><a href="../../src/main/java/com/ccj/client/android/analytics/db/utils/FieldUtils.java">../../src/main/java/com/ccj/client/android/analytics/db/utils/FieldUtils.java</a>:56</span>: <span class="message">Implicitly using the default locale is a common source of bugs: Use <code>toUpperCase(Locale)</code> instead. For strings meant to be internal use <code>Locale.ROOT</code>, otherwise <code>Locale.getDefault()</code>.</span><br /><pre class="errorlines">
+<span class="lineno">  53 </span>    }
+<span class="lineno">  54 </span>    
+<span class="lineno">  55 </span>    <span class="keyword">public</span> <span class="keyword">static</span> Method getBooleanFieldGetMethod(Class&lt;?> clazz, String fieldName) {
+<span class="caretline"><span class="lineno">  56 </span>        String mn = <span class="string">"is"</span> + fieldName.substring(<span class="number">0</span>, <span class="number">1</span>).<span class="warning">toUpperCase</span>() + fieldName.substring(<span class="number">1</span>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  57 </span>        <span class="keyword">if</span>(isISStart(fieldName)){
+<span class="lineno">  58 </span>            mn = fieldName;
+<span class="lineno">  59 </span>        }
+</pre>
+
+<span class="location"><a href="../../src/main/java/com/ccj/client/android/analytics/db/utils/FieldUtils.java">../../src/main/java/com/ccj/client/android/analytics/db/utils/FieldUtils.java</a>:71</span>: <span class="message">Implicitly using the default locale is a common source of bugs: Use <code>toUpperCase(Locale)</code> instead. For strings meant to be internal use <code>Locale.ROOT</code>, otherwise <code>Locale.getDefault()</code>.</span><br /><pre class="errorlines">
+<span class="lineno">  68 </span>    
+<span class="lineno">  69 </span>    <span class="keyword">public</span> <span class="keyword">static</span> Method getBooleanFieldSetMethod(Class&lt;?> clazz, Field f) {
+<span class="lineno">  70 </span>        String fn = f.getName();
+<span class="caretline"><span class="lineno">  71 </span>        String mn = <span class="string">"set"</span> + fn.substring(<span class="number">0</span>, <span class="number">1</span>).<span class="warning">toUpperCase</span>() + fn.substring(<span class="number">1</span>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  72 </span>        <span class="keyword">if</span>(isISStart(f.getName())){
+<span class="lineno">  73 </span>            mn = <span class="string">"set"</span> + fn.substring(<span class="number">2</span>, <span class="number">3</span>).toUpperCase() + fn.substring(<span class="number">3</span>);
+<span class="lineno">  74 </span>        }
+</pre>
+
+<button class="mdl-button mdl-js-button mdl-button--primary" id="DefaultLocaleDivLink" onclick="reveal('DefaultLocaleDiv');" />+ 7 More Occurrences...</button>
+<div id="DefaultLocaleDiv" style="display: none">
+<span class="location"><a href="../../src/main/java/com/ccj/client/android/analytics/db/utils/FieldUtils.java">../../src/main/java/com/ccj/client/android/analytics/db/utils/FieldUtils.java</a>:73</span>: <span class="message">Implicitly using the default locale is a common source of bugs: Use <code>toUpperCase(Locale)</code> instead. For strings meant to be internal use <code>Locale.ROOT</code>, otherwise <code>Locale.getDefault()</code>.</span><br /><pre class="errorlines">
+<span class="lineno">  70 </span>        String fn = f.getName();
+<span class="lineno">  71 </span>        String mn = <span class="string">"set"</span> + fn.substring(<span class="number">0</span>, <span class="number">1</span>).toUpperCase() + fn.substring(<span class="number">1</span>);
+<span class="lineno">  72 </span>        <span class="keyword">if</span>(isISStart(f.getName())){
+<span class="caretline"><span class="lineno">  73 </span>            mn = <span class="string">"set"</span> + fn.substring(<span class="number">2</span>, <span class="number">3</span>).<span class="warning">toUpperCase</span>() + fn.substring(<span class="number">3</span>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  74 </span>        }
+<span class="lineno">  75 </span>        <span class="keyword">try</span> {
+<span class="lineno">  76 </span>            <span class="keyword">return</span> clazz.getDeclaredMethod(mn, f.getType());
+</pre>
+
+<span class="location"><a href="../../src/main/java/com/ccj/client/android/analytics/db/utils/FieldUtils.java">../../src/main/java/com/ccj/client/android/analytics/db/utils/FieldUtils.java</a>:95</span>: <span class="message">Implicitly using the default locale is a common source of bugs: Use <code>toUpperCase(Locale)</code> instead. For strings meant to be internal use <code>Locale.ROOT</code>, otherwise <code>Locale.getDefault()</code>.</span><br /><pre class="errorlines">
+<span class="lineno">  92 </span>    
+<span class="lineno">  93 </span>    
+<span class="lineno">  94 </span>    <span class="keyword">public</span> <span class="keyword">static</span> Method getFieldGetMethod(Class&lt;?> clazz, String fieldName) {
+<span class="caretline"><span class="lineno">  95 </span>        String mn = <span class="string">"get"</span> + fieldName.substring(<span class="number">0</span>, <span class="number">1</span>).<span class="warning">toUpperCase</span>() + fieldName.substring(<span class="number">1</span>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  96 </span>        <span class="keyword">try</span> {
+<span class="lineno">  97 </span>            <span class="keyword">return</span> clazz.getDeclaredMethod(mn);
+<span class="lineno">  98 </span>        } <span class="keyword">catch</span> (NoSuchMethodException e) {
+</pre>
+
+<span class="location"><a href="../../src/main/java/com/ccj/client/android/analytics/db/utils/FieldUtils.java">../../src/main/java/com/ccj/client/android/analytics/db/utils/FieldUtils.java</a>:108</span>: <span class="message">Implicitly using the default locale is a common source of bugs: Use <code>toUpperCase(Locale)</code> instead. For strings meant to be internal use <code>Locale.ROOT</code>, otherwise <code>Locale.getDefault()</code>.</span><br /><pre class="errorlines">
+<span class="lineno"> 105 </span>
+<span class="lineno"> 106 </span>    <span class="keyword">public</span> <span class="keyword">static</span> Method getFieldSetMethod(Class&lt;?> clazz, Field f) {
+<span class="lineno"> 107 </span>        String fn = f.getName();
+<span class="caretline"><span class="lineno"> 108 </span>        String mn = <span class="string">"set"</span> + fn.substring(<span class="number">0</span>, <span class="number">1</span>).<span class="warning">toUpperCase</span>() + fn.substring(<span class="number">1</span>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 109 </span>        <span class="keyword">try</span> {
+<span class="lineno"> 110 </span>            <span class="keyword">return</span> clazz.getDeclaredMethod(mn, f.getType());
+<span class="lineno"> 111 </span>        } <span class="keyword">catch</span> (NoSuchMethodException e) {
+</pre>
+
+<span class="location"><a href="../../src/main/java/com/ccj/client/android/analytics/net/core/Request.java">../../src/main/java/com/ccj/client/android/analytics/net/core/Request.java</a>:663</span>: <span class="message">Implicitly using the default locale is a common source of bugs: Use <code>toUpperCase(Locale)</code> instead. For strings meant to be internal use <code>Locale.ROOT</code>, otherwise <code>Locale.getDefault()</code>.</span><br /><pre class="errorlines">
+<span class="lineno"> 660 </span>            }
+<span class="lineno"> 661 </span>           <span class="comment">// result = result + "&amp;key=" + EConstant.SIGN_KEY;</span>
+<span class="lineno"> 662 </span>            result = result.replace(<span class="string">" "</span>, <span class="string">""</span>);
+<span class="caretline"><span class="lineno"> 663 </span>            result = EMD5Utils.MD5(result).<span class="warning">toUpperCase</span>();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 664 </span>            <span class="keyword">return</span> result;
+<span class="lineno"> 665 </span>        } <span class="keyword">catch</span> (Exception e) {
+<span class="lineno"> 666 </span>            e.printStackTrace();
+</pre>
+
+<span class="location"><a href="../../src/main/java/com/ccj/client/android/analytics/net/core/Request.java">../../src/main/java/com/ccj/client/android/analytics/net/core/Request.java</a>:678</span>: <span class="message">Implicitly using the default locale is a common source of bugs: Use <code>toUpperCase(Locale)</code> instead. For strings meant to be internal use <code>Locale.ROOT</code>, otherwise <code>Locale.getDefault()</code>.</span><br /><pre class="errorlines">
+<span class="lineno"> 675 </span>            <span class="keyword">if</span> (hex.length() == <span class="number">1</span>) {
+<span class="lineno"> 676 </span>                sign.append(<span class="string">"0"</span>);
+<span class="lineno"> 677 </span>            }
+<span class="caretline"><span class="lineno"> 678 </span>            sign.append(hex.<span class="warning">toUpperCase</span>());&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 679 </span>        }
+<span class="lineno"> 680 </span>        <span class="keyword">return</span> sign.toString();
+<span class="lineno"> 681 </span>    }
+</pre>
+
+<span class="location"><a href="../../src/main/java/com/ccj/client/android/analytics/net/core/Request.java">../../src/main/java/com/ccj/client/android/analytics/net/core/Request.java</a>:689</span>: <span class="message">Implicitly using the default locale is a common source of bugs: Use <code>toUpperCase(Locale)</code> instead. For strings meant to be internal use <code>Locale.ROOT</code>, otherwise <code>Locale.getDefault()</code>.</span><br /><pre class="errorlines">
+<span class="lineno"> 686 </span>
+<span class="lineno"> 687 </span>
+<span class="lineno"> 688 </span>    <span class="keyword">public</span> String decode(String value) {
+<span class="caretline"><span class="lineno"> 689 </span>        value = value.<span class="warning">toUpperCase</span>();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 690 </span>        <span class="keyword">return</span> value;
+<span class="lineno"> 691 </span>
+<span class="lineno"> 692 </span>    }
+</pre>
+
+<span class="location"><a href="../../src/main/java/com/ccj/client/android/analytics/net/core/Request.java">../../src/main/java/com/ccj/client/android/analytics/net/core/Request.java</a>:728</span>: <span class="message">Implicitly using the default locale is a common source of bugs: Use <code>toLowerCase(Locale)</code> instead. For strings meant to be internal use <code>Locale.ROOT</code>, otherwise <code>Locale.getDefault()</code>.</span><br /><pre class="errorlines">
+<span class="lineno"> 725 </span>        String strAllParam = <span class="keyword">null</span>;
+<span class="lineno"> 726 </span>        String[] arrSplit = <span class="keyword">null</span>;
+<span class="lineno"> 727 </span>
+<span class="caretline"><span class="lineno"> 728 </span>        strURL = strURL.trim().<span class="warning">toLowerCase</span>();&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 729 </span>
+<span class="lineno"> 730 </span>        arrSplit = strURL.split(<span class="string">"[?]"</span>);
+<span class="lineno"> 731 </span>        <span class="keyword">if</span> (strURL.length() > <span class="number">1</span>) {
+</pre>
+
+</div>
+</div>
+<div class="metadata"><div class="explanation" id="explanationDefaultLocale" style="display: none;">
+Calling <code>String#toLowerCase()</code> or <code>#toUpperCase()</code> <b>without specifying an explicit locale</b> is a common source of bugs. The reason for that is that those methods will use the current locale on the user's device, and even though the code appears to work correctly when you are developing the app, it will fail in some locales. For example, in the Turkish locale, the uppercase replacement for <code>i</code> is <b>not</b> <code>I</code>.<br/>
+<br/>
+If you want the methods to just perform ASCII replacement, for example to convert an enum name, call <code>String#toUpperCase(Locale.US)</code> instead. If you really want to use the current locale, call <code>String#toUpperCase(Locale.getDefault())</code> instead.<br/><div class="moreinfo">More info: <a href="http://developer.android.com/reference/java/util/Locale.html#default_locale">http://developer.android.com/reference/java/util/Locale.html#default_locale</a>
+</div>To suppress this error, use the issue id "DefaultLocale" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="chips">
+<span class="mdl-chip">
+    <span class="mdl-chip__text">DefaultLocale</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Correctness</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Warning</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Priority 6/10</span>
+</span>
+</div>
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationDefaultLocaleLink" onclick="reveal('explanationDefaultLocale');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="DefaultLocaleCardLink" onclick="hideid('DefaultLocaleCard');">
+Dismiss</button>            </div>
+            </div>
+          </section><a name="OldTargetApi"></a>
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="OldTargetApiCard" style="display: block;">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Target SDK attribute is not targeting latest version</h2>
+  </div>
+              <div class="mdl-card__supporting-text">
+<div class="issue">
+<div class="warningslist">
+<span class="location"><a href="../../build.gradle">../../build.gradle</a>:16</span>: <span class="message">Not targeting the latest versions of Android; compatibility <br/>
+modes apply. Consider testing and updating this version. <br/>
+Consult the android.os.Build.VERSION_CODES javadoc for details.</span><br /><pre class="errorlines">
+<span class="lineno">  13 </span>    }
+<span class="lineno">  14 </span>    defaultConfig {
+<span class="lineno">  15 </span>        minSdkVersion <span class="number">15</span>
+<span class="caretline"><span class="lineno">  16 </span>        <span class="warning">targetSdkVersion <span class="number">26</span></span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  17 </span>        versionCode rootProject.ext.versionCode
+<span class="lineno">  18 </span>        versionName rootProject.ext.versionName
+<span class="lineno">  19 </span>    }
+</pre>
+
+</div>
+<div class="metadata"><div class="explanation" id="explanationOldTargetApi" style="display: none;">
+When your application runs on a version of Android that is more recent than your <code>targetSdkVersion</code> specifies that it has been tested with, various compatibility modes kick in. This ensures that your application continues to work, but it may look out of place. For example, if the <code>targetSdkVersion</code> is less than 14, your app may get an option button in the UI.<br/>
+<br/>
+To fix this issue, set the <code>targetSdkVersion</code> to the highest available value. Then test your app to make sure everything works correctly. You may want to consult the compatibility notes to see what changes apply to each version you are adding support for: <a href="http://developer.android.com/reference/android/os/Build.VERSION_CODES.html">http://developer.android.com/reference/android/os/Build.VERSION_CODES.html</a><br/><div class="moreinfo">More info: <a href="http://developer.android.com/reference/android/os/Build.VERSION_CODES.html">http://developer.android.com/reference/android/os/Build.VERSION_CODES.html</a>
+</div>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+To suppress this error, use the issue id "OldTargetApi" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="chips">
+<span class="mdl-chip">
+    <span class="mdl-chip__text">OldTargetApi</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Correctness</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Warning</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Priority 6/10</span>
+</span>
+</div>
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationOldTargetApiLink" onclick="reveal('explanationOldTargetApi');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="OldTargetApiCardLink" onclick="hideid('OldTargetApiCard');">
+Dismiss</button>            </div>
+            </div>
+          </section><a name="SimpleDateFormat"></a>
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="SimpleDateFormatCard" style="display: block;">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Implied locale in date format</h2>
+  </div>
+              <div class="mdl-card__supporting-text">
+<div class="issue">
+<div class="warningslist">
+<span class="location"><a href="../../src/main/java/com/ccj/client/android/analytics/net/gson/DefaultDateTypeAdapter.java">../../src/main/java/com/ccj/client/android/analytics/net/gson/DefaultDateTypeAdapter.java</a>:72</span>: <span class="message">To get local formatting use <code>getDateInstance()</code>, <code>getDateTimeInstance()</code>, or <code>getTimeInstance()</code>, or use <code>new SimpleDateFormat(String template, Locale locale)</code> with for example <code>Locale.US</code> for ASCII dates.</span><br /><pre class="errorlines">
+<span class="lineno">  69 </span>    <span class="keyword">this</span>.dateType = verifyDateType(dateType);
+<span class="lineno">  70 </span>    dateFormats.add(<span class="keyword">new</span> SimpleDateFormat(datePattern, Locale.US));
+<span class="lineno">  71 </span>    <span class="keyword">if</span> (!Locale.getDefault().equals(Locale.US)) {
+<span class="caretline"><span class="lineno">  72 </span>      dateFormats.add(<span class="warning"><span class="keyword">new</span> SimpleDateFormat(datePattern)</span>);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  73 </span>    }
+<span class="lineno">  74 </span>  }
+</pre>
+
+<span class="location"><a href="../../src/main/java/com/ccj/client/android/analytics/EventDecorator.java">../../src/main/java/com/ccj/client/android/analytics/EventDecorator.java</a>:189</span>: <span class="message">To get local formatting use <code>getDateInstance()</code>, <code>getDateTimeInstance()</code>, or <code>getTimeInstance()</code>, or use <code>new SimpleDateFormat(String template, Locale locale)</code> with for example <code>Locale.US</code> for ASCII dates.</span><br /><pre class="errorlines">
+<span class="lineno"> 186 </span>
+<span class="lineno"> 187 </span>  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">synchronized</span>   String getNowDate() {
+<span class="lineno"> 188 </span>      <span class="comment">//    SimpleDateFormat myFmt2=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//等价于now.toLocaleString()</span>
+<span class="caretline"><span class="lineno"> 189 </span>      SimpleDateFormat format = <span class="warning"><span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd HH:mm:ss"</span>)</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 190 </span>      Date date = <span class="keyword">new</span> Date();
+<span class="lineno"> 191 </span>      String strDate = format.format(date);
+<span class="lineno"> 192 </span>      <span class="keyword">return</span> strDate;
+</pre>
+
+<span class="location"><a href="../../src/main/java/com/ccj/client/android/analytics/EventDecorator.java">../../src/main/java/com/ccj/client/android/analytics/EventDecorator.java</a>:245</span>: <span class="message">To get local formatting use <code>getDateInstance()</code>, <code>getDateTimeInstance()</code>, or <code>getTimeInstance()</code>, or use <code>new SimpleDateFormat(String template, Locale locale)</code> with for example <code>Locale.US</code> for ASCII dates.</span><br /><pre class="errorlines">
+<span class="lineno"> 242 </span><span class="javadoc">   * 访问结束的标志:不活动状态超过15分钟
+</span><span class="lineno"> 243 </span><span class="javadoc">   */</span>
+<span class="lineno"> 244 </span>  <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">synchronized</span> <span class="keyword">boolean</span> compareDate(String newDate, String oldDate, <span class="keyword">int</span> minute) {
+<span class="caretline"><span class="lineno"> 245 </span>      SimpleDateFormat format = <span class="warning"><span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd HH:mm:ss"</span>)</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 246 </span>      Date dtNew = <span class="keyword">null</span>;
+<span class="lineno"> 247 </span>      Date dtOld = <span class="keyword">null</span>;
+</pre>
+
+<span class="location"><a href="../../src/main/java/com/ccj/client/android/analytics/db/utils/FieldUtils.java">../../src/main/java/com/ccj/client/android/analytics/db/utils/FieldUtils.java</a>:41</span>: <span class="message">To get local formatting use <code>getDateInstance()</code>, <code>getDateTimeInstance()</code>, or <code>getTimeInstance()</code>, or use <code>new SimpleDateFormat(String template, Locale locale)</code> with for example <code>Locale.US</code> for ASCII dates.</span><br /><pre class="errorlines">
+<span class="lineno">  38 </span><span class="javadoc"> * @created 2012-10-10
+</span><span class="lineno">  39 </span><span class="javadoc"> */</span>
+<span class="lineno">  40 </span><span class="keyword">public</span> <span class="keyword">class</span> FieldUtils {
+<span class="caretline"><span class="lineno">  41 </span>    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> SimpleDateFormat SDF = <span class="warning"><span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd HH:mm:ss"</span>)</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  42 </span>    
+<span class="lineno">  43 </span>    <span class="keyword">public</span> <span class="keyword">static</span> Method getFieldGetMethod(Class&lt;?> clazz, Field f) {
+<span class="lineno">  44 </span>        String fn = f.getName();
+</pre>
+
+<span class="location"><a href="../../src/main/java/com/ccj/client/android/analytics/net/gson/internal/bind/SqlDateTypeAdapter.java">../../src/main/java/com/ccj/client/android/analytics/net/gson/internal/bind/SqlDateTypeAdapter.java</a>:50</span>: <span class="message">To get local formatting use <code>getDateInstance()</code>, <code>getDateTimeInstance()</code>, or <code>getTimeInstance()</code>, or use <code>new SimpleDateFormat(String template, Locale locale)</code> with for example <code>Locale.US</code> for ASCII dates.</span><br /><pre class="errorlines">
+<span class="lineno"> 47 </span>    }
+<span class="lineno"> 48 </span>  };
+<span class="lineno"> 49 </span>
+<span class="caretline"><span class="lineno"> 50 </span>  <span class="keyword">private</span> <span class="keyword">final</span> DateFormat format = <span class="warning"><span class="keyword">new</span> SimpleDateFormat(<span class="string">"MMM d, yyyy"</span>)</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 51 </span>
+<span class="lineno"> 52 </span>  <span class="annotation">@Override</span>
+<span class="lineno"> 53 </span>  <span class="keyword">public</span> <span class="keyword">synchronized</span> java.sql.Date read(JsonReader in) <span class="keyword">throws</span> IOException {
+</pre>
+
+<span class="location"><a href="../../src/main/java/com/ccj/client/android/analytics/net/gson/internal/bind/TimeTypeAdapter.java">../../src/main/java/com/ccj/client/android/analytics/net/gson/internal/bind/TimeTypeAdapter.java</a>:50</span>: <span class="message">To get local formatting use <code>getDateInstance()</code>, <code>getDateTimeInstance()</code>, or <code>getTimeInstance()</code>, or use <code>new SimpleDateFormat(String template, Locale locale)</code> with for example <code>Locale.US</code> for ASCII dates.</span><br /><pre class="errorlines">
+<span class="lineno"> 47 </span>    }
+<span class="lineno"> 48 </span>  };
+<span class="lineno"> 49 </span>
+<span class="caretline"><span class="lineno"> 50 </span>  <span class="keyword">private</span> <span class="keyword">final</span> DateFormat format = <span class="warning"><span class="keyword">new</span> SimpleDateFormat(<span class="string">"hh:mm:ss a"</span>)</span>;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 51 </span>
+<span class="lineno"> 52 </span>  <span class="annotation">@Override</span> <span class="keyword">public</span> <span class="keyword">synchronized</span> Time read(JsonReader in) <span class="keyword">throws</span> IOException {
+<span class="lineno"> 53 </span>    <span class="keyword">if</span> (in.peek() == JsonToken.NULL) {
+</pre>
+
+</div>
+<div class="metadata"><div class="explanation" id="explanationSimpleDateFormat" style="display: none;">
+Almost all callers should use <code>getDateInstance()</code>, <code>getDateTimeInstance()</code>, or <code>getTimeInstance()</code> to get a ready-made instance of SimpleDateFormat suitable for the user's locale. The main reason you'd create an instance this class directly is because you need to format/parse a specific machine-readable format, in which case you almost certainly want to explicitly ask for US to ensure that you get ASCII digits (rather than, say, Arabic digits).<br/>
+<br/>
+Therefore, you should either use the form of the SimpleDateFormat constructor where you pass in an explicit locale, such as Locale.US, or use one of the get instance methods, or suppress this error if really know what you are doing.<br/><div class="moreinfo">More info: <a href="http://developer.android.com/reference/java/text/SimpleDateFormat.html">http://developer.android.com/reference/java/text/SimpleDateFormat.html</a>
+</div>To suppress this error, use the issue id "SimpleDateFormat" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="chips">
+<span class="mdl-chip">
+    <span class="mdl-chip__text">SimpleDateFormat</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Correctness</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Warning</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Priority 6/10</span>
+</span>
+</div>
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationSimpleDateFormatLink" onclick="reveal('explanationSimpleDateFormat');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="SimpleDateFormatCardLink" onclick="hideid('SimpleDateFormatCard');">
+Dismiss</button>            </div>
+            </div>
+          </section>
+<a name="Security"></a>
+<a name="HardwareIds"></a>
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="HardwareIdsCard" style="display: block;">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Hardware Id Usage</h2>
+  </div>
+              <div class="mdl-card__supporting-text">
+<div class="issue">
+<div class="warningslist">
+<span class="location"><a href="../../src/main/java/com/ccj/client/android/analytics/utils/EDeviceUtils.java">../../src/main/java/com/ccj/client/android/analytics/utils/EDeviceUtils.java</a>:211</span>: <span class="message">Using <code>getString</code> to get device identifiers is not recommended.</span><br /><pre class="errorlines">
+<span class="lineno"> 208 </span><span class="javadoc">   */</span>
+<span class="lineno"> 209 </span>  <span class="keyword">public</span> <span class="keyword">static</span> String getAndroidId(Context context) {
+<span class="lineno"> 210 </span>
+<span class="caretline"><span class="lineno"> 211 </span>      String androidId = <span class="warning">Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID)</span>;</span>
+<span class="lineno"> 212 </span>      <span class="keyword">return</span> androidId == <span class="keyword">null</span> ? <span class="keyword">null</span> : androidId.toUpperCase();
+<span class="lineno"> 213 </span>  }
+</pre>
+
+</div>
+<div class="metadata"><div class="explanation" id="explanationHardwareIds" style="display: none;">
+Using these device identifiers is not recommended other than for high value fraud prevention and advanced telephony use-cases. For advertising use-cases, use <code>AdvertisingIdClient$Info#getId</code> and for analytics, use <code>InstanceId#getId</code>.<br/><div class="moreinfo">More info: <a href="https://developer.android.com/training/articles/user-data-ids.html">https://developer.android.com/training/articles/user-data-ids.html</a>
+</div>To suppress this error, use the issue id "HardwareIds" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="chips">
+<span class="mdl-chip">
+    <span class="mdl-chip__text">HardwareIds</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Security</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Warning</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Priority 6/10</span>
+</span>
+</div>
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationHardwareIdsLink" onclick="reveal('explanationHardwareIds');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="HardwareIdsCardLink" onclick="hideid('HardwareIdsCard');">
+Dismiss</button>            </div>
+            </div>
+          </section>
+<a name="Performance"></a>
+<a name="ObsoleteSdkInt"></a>
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="ObsoleteSdkIntCard" style="display: block;">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Obsolete SDK_INT Version Check</h2>
+  </div>
+              <div class="mdl-card__supporting-text">
+<div class="issue">
+<div class="warningslist">
+<span class="location"><a href="../../src/main/java/com/ccj/client/android/analytics/net/core/Tools/EVolley.java">../../src/main/java/com/ccj/client/android/analytics/net/core/Tools/EVolley.java</a>:52</span>: <span class="message">Unnecessary; SDK_INT is always >= 15</span><br /><pre class="errorlines">
+<span class="lineno"> 49 </span>        }
+<span class="lineno"> 50 </span>
+<span class="lineno"> 51 </span>        <span class="keyword">if</span> (stack == <span class="keyword">null</span>) {
+<span class="caretline"><span class="lineno"> 52 </span>            <span class="keyword">if</span> (<span class="warning">Build.VERSION.SDK_INT >= <span class="number">9</span></span>) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno"> 53 </span>                stack = <span class="keyword">new</span> HurlStack();
+<span class="lineno"> 54 </span>            } <span class="keyword">else</span> {
+<span class="lineno"> 55 </span>                <span class="comment">// Prior to Gingerbread, HttpUrlConnection was unreliable.</span></pre>
+
+<span class="location"><a href="../../src/main/java/com/ccj/client/android/analytics/net/core/NetworkDispatcher.java">../../src/main/java/com/ccj/client/android/analytics/net/core/NetworkDispatcher.java</a>:76</span>: <span class="message">Unnecessary; SDK_INT is always >= 15</span><br /><pre class="errorlines">
+<span class="lineno">  73 </span>    <span class="annotation">@TargetApi</span>(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
+<span class="lineno">  74 </span>    <span class="keyword">private</span> <span class="keyword">void</span> addTrafficStatsTag(Request&lt;?> request) {
+<span class="lineno">  75 </span>        <span class="comment">// Tag the request (if API >= 14)</span>
+<span class="caretline"><span class="lineno">  76 </span>        <span class="keyword">if</span> (<span class="warning">Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH</span>) {&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+<span class="lineno">  77 </span>            TrafficStats.setThreadStatsTag(request.getTrafficStatsTag());
+<span class="lineno">  78 </span>        }
+<span class="lineno">  79 </span>    }
+</pre>
+
+</div>
+<div class="metadata"><div class="explanation" id="explanationObsoleteSdkInt" style="display: none;">
+This check flags version checks that are not necessary, because the <code>minSdkVersion</code> (or surrounding known API level) is already at least as high as the version checked for.<br/>
+<br/>
+Similarly, it also looks for resources in <code>-vNN</code> folders, such as <code>values-v14</code> where the version qualifier is less than or equal to the <code>minSdkVersion</code>, where the contents should be merged into the best folder.<br/>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+To suppress this error, use the issue id "ObsoleteSdkInt" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="chips">
+<span class="mdl-chip">
+    <span class="mdl-chip__text">ObsoleteSdkInt</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Performance</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Warning</span>
+</span>
+<span class="mdl-chip">
+    <span class="mdl-chip__text">Priority 6/10</span>
+</span>
+</div>
+              </div>
+              <div class="mdl-card__actions mdl-card--border">
+<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="explanationObsoleteSdkIntLink" onclick="reveal('explanationObsoleteSdkInt');">
+Explain</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="ObsoleteSdkIntCardLink" onclick="hideid('ObsoleteSdkIntCard');">
+Dismiss</button>            </div>
+            </div>
+          </section>
+<a name="MissingIssues"></a>
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="MissingIssuesCard" style="display: block;">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Disabled Checks</h2>
+  </div>
+              <div class="mdl-card__supporting-text">
+One or more issues were not run by lint, either 
+because the check is not enabled by default, or because 
+it was disabled with a command line flag or via one or 
+more <code>lint.xml</code> configuration files in the project directories.
+<div id="SuppressedIssues" style="display: none;"><br/><br/><div class="issue">
+<div class="id">AppLinksAutoVerifyError<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+Ensures that app links are correctly set and associated with website.<br/><div class="moreinfo">More info: <a href="https://g.co/appindexing/applinks">https://g.co/appindexing/applinks</a>
+</div>To suppress this error, use the issue id "AppLinksAutoVerifyError" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">AppLinksAutoVerifyWarning<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+Ensures that app links are correctly set and associated with website.<br/><div class="moreinfo">More info: <a href="https://g.co/appindexing/applinks">https://g.co/appindexing/applinks</a>
+</div>To suppress this error, use the issue id "AppLinksAutoVerifyWarning" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">BackButton<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+According to the Android Design Guide,<br/>
+<br/>
+"Other platforms use an explicit back button with label to allow the user to navigate up the application's hierarchy. Instead, Android uses the main action bar's app icon for hierarchical navigation and the navigation bar's back button for temporal navigation."<br/>
+This check is not very sophisticated (it just looks for buttons with the label "Back"), so it is disabled by default to not trigger on common scenarios like pairs of Back/Next buttons to paginate through screens.<br/><div class="moreinfo">More info: <a href="http://developer.android.com/design/patterns/pure-android.html">http://developer.android.com/design/patterns/pure-android.html</a>
+</div>To suppress this error, use the issue id "BackButton" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">ConvertToWebp<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+The WebP format is typically more compact than PNG and JPEG. As of Android 4.2.1 it supports transparency and lossless conversion as well. Note that there is a quickfix in the IDE which lets you perform conversion.<br/>
+<br/>
+Launcher icons must be in the PNG format.<br/>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+To suppress this error, use the issue id "ConvertToWebp" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">EasterEgg<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+An "easter egg" is code deliberately hidden in the code, both from potential users and even from other developers. This lint check looks for code which looks like it may be hidden from sight.<br/>To suppress this error, use the issue id "EasterEgg" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">FieldGetter<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+Accessing a field within the class that defines a getter for that field is at least 3 times faster than calling the getter. For simple getters that do nothing other than return the field, you might want to just reference the local field directly instead.<br/>
+<br/>
+<b>NOTE</b>: As of Android 2.3 (Gingerbread), this optimization is performed automatically by Dalvik, so there is no need to change your code; this is only relevant if you are targeting older versions of Android.<br/><div class="moreinfo">More info: <a href="http://developer.android.com/guide/practices/design/performance.html#internal_get_set">http://developer.android.com/guide/practices/design/performance.html#internal_get_set</a>
+</div>To suppress this error, use the issue id "FieldGetter" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">GoogleAppIndexingApiWarning<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+Adds URLs to get your app into the Google index, to get installs and traffic to your app from Google Search.<br/><div class="moreinfo">More info: <a href="https://g.co/AppIndexing/AndroidStudio">https://g.co/AppIndexing/AndroidStudio</a>
+</div>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+To suppress this error, use the issue id "GoogleAppIndexingApiWarning" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">IconExpectedSize<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+There are predefined sizes (for each density) for launcher icons. You should follow these conventions to make sure your icons fit in with the overall look of the platform.<br/><div class="moreinfo">More info: <a href="http://developer.android.com/design/style/iconography.html">http://developer.android.com/design/style/iconography.html</a>
+</div>To suppress this error, use the issue id "IconExpectedSize" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">LogConditional<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+The BuildConfig class (available in Tools 17) provides a constant, "DEBUG", which indicates whether the code is being built in release mode or in debug mode. In release mode, you typically want to strip out all the logging calls. Since the compiler will automatically remove all code which is inside a "if (false)" check, surrounding your logging calls with a check for BuildConfig.DEBUG is a good idea.<br/>
+<br/>
+If you <b>really</b> intend for the logging to be present in release mode, you can suppress this warning with a @SuppressLint annotation for the intentional logging calls.<br/>To suppress this error, use the issue id "LogConditional" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">MangledCRLF<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+On Windows, line endings are typically recorded as carriage return plus newline: \r\n.<br/>
+<br/>
+This detector looks for invalid line endings with repeated carriage return characters (without newlines). Previous versions of the ADT plugin could accidentally introduce these into the file, and when editing the file, the editor could produce confusing visual artifacts.<br/><div class="moreinfo">More info: <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=375421">https://bugs.eclipse.org/bugs/show_bug.cgi?id=375421</a>
+</div>To suppress this error, use the issue id "MangledCRLF" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">MinSdkTooLow<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+The value of the <code>minSdkVersion</code> property is too low and can be incrementedwithout noticeably reducing the number of supported devices.<br/>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+To suppress this error, use the issue id "MinSdkTooLow" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">MissingRegistered<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+If a class is referenced in the manifest or in a layout file, it must also exist in the project (or in one of the libraries included by the project. This check helps uncover typos in registration names, or attempts to rename or move classes without updating the manifest file properly.<br/><div class="moreinfo">More info: <a href="http://developer.android.com/guide/topics/manifest/manifest-intro.html">http://developer.android.com/guide/topics/manifest/manifest-intro.html</a>
+</div>To suppress this error, use the issue id "MissingRegistered" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">NegativeMargin<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+Margin values should be positive. Negative values are generally a sign that you are making assumptions about views surrounding the current one, or may be tempted to turn off child clipping to allow a view to escape its parent. Turning off child clipping to do this not only leads to poor graphical performance, it also results in wrong touch event handling since touch events are based strictly on a chain of parent-rect hit tests. Finally, making assumptions about the size of strings can lead to localization problems.<br/>To suppress this error, use the issue id "NegativeMargin" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">NewerVersionAvailable<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+This detector checks with a central repository to see if there are newer versions available for the dependencies used by this project. This is similar to the <code>GradleDependency</code> check, which checks for newer versions available in the Android SDK tools and libraries, but this works with any MavenCentral dependency, and connects to the library every time, which makes it more flexible but also <b>much</b> slower.<br/>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+To suppress this error, use the issue id "NewerVersionAvailable" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">PermissionImpliesUnsupportedChromeOsHardware<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+The <code>&lt;uses-permission></code> element should not require a permission that implies an unsupported Chrome OS hardware feature. Google Play assumes that certain hardware related permissions indicate that the underlying hardware features are required by default. To fix the issue, consider declaring the corresponding uses-feature element with <code>required="false"</code> attribute.<br/><div class="moreinfo">More info: <a href="https://developer.android.com/topic/arc/manifest.html#implied-features">https://developer.android.com/topic/arc/manifest.html#implied-features</a>
+</div>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+To suppress this error, use the issue id "PermissionImpliesUnsupportedChromeOsHardware" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">Registered<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+Activities, services and content providers should be registered in the <code>AndroidManifest.xml</code> file using <code>&lt;activity></code>, <code>&lt;service></code> and <code>&lt;provider></code> tags.<br/>
+<br/>
+If your activity is simply a parent class intended to be subclassed by other "real" activities, make it an abstract class.<br/><div class="moreinfo">More info: <a href="http://developer.android.com/guide/topics/manifest/manifest-intro.html">http://developer.android.com/guide/topics/manifest/manifest-intro.html</a>
+</div>To suppress this error, use the issue id "Registered" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">SelectableText<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+If a <code>&lt;TextView></code> is used to display data, the user might want to copy that data and paste it elsewhere. To allow this, the <code>&lt;TextView></code> should specify <code>android:textIsSelectable="true"</code>.<br/>
+<br/>
+This lint check looks for TextViews which are likely to be displaying data: views whose text is set dynamically. This value will be ignored on platforms older than API 11, so it is okay to set it regardless of your <code>minSdkVersion</code>.<br/>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+To suppress this error, use the issue id "SelectableText" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">StopShip<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+Using the comment <code>// STOPSHIP</code> can be used to flag code that is incomplete but checked in. This comment marker can be used to indicate that the code should not be shipped until the issue is addressed, and lint will look for these.  In Gradle projects, this is only checked for non-debug (release) builds.<br/>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+To suppress this error, use the issue id "StopShip" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">TypographyQuotes<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+Straight single quotes and double quotes, when used as a pair, can be replaced by "curvy quotes" (or directional quotes). This can make the text more readable.<br/>
+<br/>
+Note that you should never use grave accents and apostrophes to quote, `like this'.<br/>
+<br/>
+(Also note that you should not use curvy quotes for code fragments.)<br/><div class="moreinfo">More info: <a href="http://en.wikipedia.org/wiki/Quotation_mark">http://en.wikipedia.org/wiki/Quotation_mark</a>
+</div>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+To suppress this error, use the issue id "TypographyQuotes" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">UnpackedNativeCode<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+This app loads native libraries using <code>System.loadLibrary()</code>.<br/>
+<br/>
+Consider adding <code>android:extractNativeLibs="false"</code> to the <code>&lt;application></code> tag in AndroidManifest.xml. Starting with Android 6.0, this will make installation faster, the app will take up less space on the device and updates will have smaller download sizes.<br/>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+To suppress this error, use the issue id "UnpackedNativeCode" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">UnsupportedChromeOsHardware<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+The <code>&lt;uses-feature></code> element should not require this unsupported Chrome OS hardware feature. Any uses-feature not explicitly marked with <code>required="false"</code> is necessary on the device to be installed on. Ensure that any features that might prevent it from being installed on a Chrome OS device are reviewed and marked as not required in the manifest.<br/><div class="moreinfo">More info: <a href="https://developer.android.com/topic/arc/manifest.html#incompat-entries">https://developer.android.com/topic/arc/manifest.html#incompat-entries</a>
+</div>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+To suppress this error, use the issue id "UnsupportedChromeOsHardware" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">UnusedIds<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+This resource id definition appears not to be needed since it is not referenced from anywhere. Having id definitions, even if unused, is not necessarily a bad idea since they make working on layouts and menus easier, so there is not a strong reason to delete these.<br/>Note: This issue has an associated quickfix operation in Android Studio and IntelliJ IDEA.<br>
+To suppress this error, use the issue id "UnusedIds" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+<div class="issue">
+<div class="id">WrongThreadInterprocedural<div class="issueSeparator"></div>
+</div>
+<div class="metadata">Disabled By: Default<br/>
+<div class="explanation">
+Searches for interprocedural call paths that violate thread annotations in the program. Tracks the flow of instantiated types and lambda expressions to increase accuracy across method boundaries.<br/><div class="moreinfo">More info: <a href="http://developer.android.com/guide/components/processes-and-threads.html#Threads">http://developer.android.com/guide/components/processes-and-threads.html#Threads</a>
+</div>To suppress this error, use the issue id "WrongThreadInterprocedural" as explained in the <a href="#SuppressInfo">Suppressing Warnings and Errors</a> section.<br/>
+<br/></div>
+</div>
+</div>
+</div>              </div>
+              <div class="mdl-card__actions mdl-card--border">
+<button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="SuppressedIssuesLink" onclick="reveal('SuppressedIssues');">
+List Missing Issues</button><button class="mdl-button mdl-js-button mdl-js-ripple-effect" id="MissingIssuesCardLink" onclick="hideid('MissingIssuesCard');">
+Dismiss</button>            </div>
+            </div>
+          </section>
+<a name="SuppressInfo"></a>
+<section class="section--center mdl-grid mdl-grid--no-spacing mdl-shadow--2dp" id="SuppressCard" style="display: block;">
+            <div class="mdl-card mdl-cell mdl-cell--12-col">
+  <div class="mdl-card__title">
+    <h2 class="mdl-card__title-text">Suppressing Warnings and Errors</h2>
+  </div>
+              <div class="mdl-card__supporting-text">
+Lint errors can be suppressed in a variety of ways:<br/>
+<br/>
+1. With a <code>@SuppressLint</code> annotation in the Java code<br/>
+2. With a <code>tools:ignore</code> attribute in the XML file<br/>
+3. With a //noinspection comment in the source code<br/>
+4. With ignore flags specified in the <code>build.gradle</code> file, as explained below<br/>
+5. With a <code>lint.xml</code> configuration file in the project<br/>
+6. With a <code>lint.xml</code> configuration file passed to lint via the --config flag<br/>
+7. With the --ignore flag passed to lint.<br/>
+<br/>
+To suppress a lint warning with an annotation, add a <code>@SuppressLint("id")</code> annotation on the class, method or variable declaration closest to the warning instance you want to disable. The id can be one or more issue id's, such as <code>"UnusedResources"</code> or <code>{"UnusedResources","UnusedIds"}</code>, or it can be <code>"all"</code> to suppress all lint warnings in the given scope.<br/>
+<br/>
+To suppress a lint warning with a comment, add a <code>//noinspection id</code> comment on the line before the statement with the error.<br/>
+<br/>
+To suppress a lint warning in an XML file, add a <code>tools:ignore="id"</code> attribute on the element containing the error, or one of its surrounding elements. You also need to define the namespace for the tools prefix on the root element in your document, next to the <code>xmlns:android</code> declaration:<br/>
+<code>xmlns:tools="http://schemas.android.com/tools"</code><br/>
+<br/>
+To suppress a lint warning in a <code>build.gradle</code> file, add a section like this:<br/>
+<br/>
+android {<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;lintOptions {<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;disable 'TypographyFractions','TypographyQuotes'<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+}<br/>
+<br/>
+Here we specify a comma separated list of issue id's after the disable command. You can also use <code>warning</code> or <code>error</code> instead of <code>disable</code> to change the severity of issues.<br/>
+<br/>
+To suppress lint warnings with a configuration XML file, create a file named <code>lint.xml</code> and place it at the root directory of the module in which it applies.<br/>
+<br/>
+The format of the <code>lint.xml</code> file is something like the following:<br/>
+<br/>
+&lt;?xml version="1.0" encoding="UTF-8"?><br/>
+&lt;lint><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- Ignore everything in the test source set --><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;issue id="all"><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ignore path="*/test/*" /><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/issue><br/>
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- Disable this given check in this project --><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;issue id="IconMissingDensityFolder" severity="ignore" /><br/>
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- Ignore the ObsoleteLayoutParam issue in the given files --><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;issue id="ObsoleteLayoutParam"><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ignore path="res/layout/activation.xml" /><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ignore path="res/layout-xlarge/activation.xml" /><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ignore regexp="(foo|bar).java" /><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/issue><br/>
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- Ignore the UselessLeaf issue in the given file --><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;issue id="UselessLeaf"><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;ignore path="res/layout/main.xml" /><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/issue><br/>
+<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;!-- Change the severity of hardcoded strings to "error" --><br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;issue id="HardcodedText" severity="error" /><br/>
+&lt;/lint><br/>
+<br/>
+To suppress lint checks from the command line, pass the --ignore flag with a comma separated list of ids to be suppressed, such as:<br/>
+<code>$ lint --ignore UnusedResources,UselessLeaf /my/project/path</code><br/>
+<br/>
+For more information, see <a href="http://g.co/androidstudio/suppressing-lint-warnings">http://g.co/androidstudio/suppressing-lint-warnings</a><br/>
+
+            </div>
+            </div>
+          </section>    </div>
+  </main>
+</div>
+</body>
+</html>

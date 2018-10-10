@@ -1,0 +1,594 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<issues format="4" by="lint 3.1.4">
+
+    <issue
+        id="MissingPermission"
+        severity="Error"
+        message="Missing permissions required by ConnectivityManager.getActiveNetworkInfo: android.permission.ACCESS_NETWORK_STATE"
+        category="Correctness"
+        priority="9"
+        summary="Missing Permissions"
+        explanation="This check scans through your code and libraries and looks at the APIs being used, and checks this against the set of permissions required to access those APIs. If the code using those APIs is called at runtime, then the program will crash.&#xA;&#xA;Furthermore, for permissions that are revocable (with targetSdkVersion 23), client code must also be prepared to handle the calls throwing an exception if the user rejects the request for permission at runtime."
+        errorLine1="        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();"
+        errorLine2="                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        quickfix="studio">
+        <location
+            file="/Users/chenchangjun/MyOpenGitSouce/JJEvent/analytics_lib/src/main/java/com/ccj/client/android/analytics/utils/EDeviceUtils.java"
+            line="199"
+            column="35"/>
+    </issue>
+
+    <issue
+        id="ApplySharedPref"
+        severity="Warning"
+        message="Consider using `apply()` instead; `commit` writes its data to persistent storage immediately, whereas `apply` will handle it in the background"
+        category="Correctness"
+        priority="6"
+        summary="Use `apply()` on `SharedPreferences`"
+        explanation="Consider using `apply()` instead of `commit` on shared preferences. Whereas `commit` blocks and writes its data to persistent storage immediately, `apply` will handle it in the background."
+        errorLine1="        preferences.edit().commit();"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        quickfix="studio">
+        <location
+            file="/Users/chenchangjun/MyOpenGitSouce/JJEvent/analytics_lib/src/main/java/com/ccj/client/android/analytics/utils/EDeviceUtils.java"
+            line="236"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="Assert"
+        severity="Warning"
+        message="Assertions are unreliable in Dalvik and unimplemented in ART. Use `BuildConfig.DEBUG` conditional checks instead."
+        category="Correctness"
+        priority="6"
+        summary="Assertions"
+        explanation="Assertions are not checked at runtime. There are ways to request that they be used by Dalvik \&#xA;(`adb shell setprop debug.assert 1`), but note that this is not implemented in ART (the newer \&#xA;runtime), and even in Dalvik the property is ignored in many places and can not be relied upon. \&#xA;Instead, perform conditional checking inside `if (BuildConfig.DEBUG) { }` blocks. That constant \&#xA;is a static final boolean which is true in debug builds and false in release builds, and the \&#xA;Java compiler completely removes all code inside the if-body from the app.&#xA;&#xA;For example, you can replace `assert speed > 0` with `if (BuildConfig.DEBUG &amp;&amp; !(speed > 0)) { \&#xA;throw new AssertionError() }`.&#xA;&#xA;(Note: This lint check does not flag assertions purely asserting nullness or non-nullness; these \&#xA;are typically more intended for tools usage than runtime checks.)"
+        url="https://code.google.com/p/android/issues/detail?id=65183"
+        urls="https://code.google.com/p/android/issues/detail?id=65183"
+        errorLine1="        assert (parent.right == node);"
+        errorLine2="        ~~~~~~">
+        <location
+            file="/Users/chenchangjun/MyOpenGitSouce/JJEvent/analytics_lib/src/main/java/com/ccj/client/android/analytics/net/gson/internal/LinkedHashTreeMap.java"
+            line="322"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="Assert"
+        severity="Warning"
+        message="Assertions are unreliable in Dalvik and unimplemented in ART. Use `BuildConfig.DEBUG` conditional checks instead."
+        category="Correctness"
+        priority="6"
+        summary="Assertions"
+        explanation="Assertions are not checked at runtime. There are ways to request that they be used by Dalvik \&#xA;(`adb shell setprop debug.assert 1`), but note that this is not implemented in ART (the newer \&#xA;runtime), and even in Dalvik the property is ignored in many places and can not be relied upon. \&#xA;Instead, perform conditional checking inside `if (BuildConfig.DEBUG) { }` blocks. That constant \&#xA;is a static final boolean which is true in debug builds and false in release builds, and the \&#xA;Java compiler completely removes all code inside the if-body from the app.&#xA;&#xA;For example, you can replace `assert speed > 0` with `if (BuildConfig.DEBUG &amp;&amp; !(speed > 0)) { \&#xA;throw new AssertionError() }`.&#xA;&#xA;(Note: This lint check does not flag assertions purely asserting nullness or non-nullness; these \&#xA;are typically more intended for tools usage than runtime checks.)"
+        url="https://code.google.com/p/android/issues/detail?id=65183"
+        urls="https://code.google.com/p/android/issues/detail?id=65183"
+        errorLine1="          assert (rightDelta == 1);"
+        errorLine2="          ~~~~~~">
+        <location
+            file="/Users/chenchangjun/MyOpenGitSouce/JJEvent/analytics_lib/src/main/java/com/ccj/client/android/analytics/net/gson/internal/LinkedHashTreeMap.java"
+            line="356"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="Assert"
+        severity="Warning"
+        message="Assertions are unreliable in Dalvik and unimplemented in ART. Use `BuildConfig.DEBUG` conditional checks instead."
+        category="Correctness"
+        priority="6"
+        summary="Assertions"
+        explanation="Assertions are not checked at runtime. There are ways to request that they be used by Dalvik \&#xA;(`adb shell setprop debug.assert 1`), but note that this is not implemented in ART (the newer \&#xA;runtime), and even in Dalvik the property is ignored in many places and can not be relied upon. \&#xA;Instead, perform conditional checking inside `if (BuildConfig.DEBUG) { }` blocks. That constant \&#xA;is a static final boolean which is true in debug builds and false in release builds, and the \&#xA;Java compiler completely removes all code inside the if-body from the app.&#xA;&#xA;For example, you can replace `assert speed > 0` with `if (BuildConfig.DEBUG &amp;&amp; !(speed > 0)) { \&#xA;throw new AssertionError() }`.&#xA;&#xA;(Note: This lint check does not flag assertions purely asserting nullness or non-nullness; these \&#xA;are typically more intended for tools usage than runtime checks.)"
+        url="https://code.google.com/p/android/issues/detail?id=65183"
+        urls="https://code.google.com/p/android/issues/detail?id=65183"
+        errorLine1="          assert (leftDelta == -1);"
+        errorLine2="          ~~~~~~">
+        <location
+            file="/Users/chenchangjun/MyOpenGitSouce/JJEvent/analytics_lib/src/main/java/com/ccj/client/android/analytics/net/gson/internal/LinkedHashTreeMap.java"
+            line="374"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="Assert"
+        severity="Warning"
+        message="Assertions are unreliable in Dalvik and unimplemented in ART. Use `BuildConfig.DEBUG` conditional checks instead."
+        category="Correctness"
+        priority="6"
+        summary="Assertions"
+        explanation="Assertions are not checked at runtime. There are ways to request that they be used by Dalvik \&#xA;(`adb shell setprop debug.assert 1`), but note that this is not implemented in ART (the newer \&#xA;runtime), and even in Dalvik the property is ignored in many places and can not be relied upon. \&#xA;Instead, perform conditional checking inside `if (BuildConfig.DEBUG) { }` blocks. That constant \&#xA;is a static final boolean which is true in debug builds and false in release builds, and the \&#xA;Java compiler completely removes all code inside the if-body from the app.&#xA;&#xA;For example, you can replace `assert speed > 0` with `if (BuildConfig.DEBUG &amp;&amp; !(speed > 0)) { \&#xA;throw new AssertionError() }`.&#xA;&#xA;(Note: This lint check does not flag assertions purely asserting nullness or non-nullness; these \&#xA;are typically more intended for tools usage than runtime checks.)"
+        url="https://code.google.com/p/android/issues/detail?id=65183"
+        urls="https://code.google.com/p/android/issues/detail?id=65183"
+        errorLine1="        assert (delta == -1 || delta == 1);"
+        errorLine2="        ~~~~~~">
+        <location
+            file="/Users/chenchangjun/MyOpenGitSouce/JJEvent/analytics_lib/src/main/java/com/ccj/client/android/analytics/net/gson/internal/LinkedHashTreeMap.java"
+            line="389"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="Assert"
+        severity="Warning"
+        message="Assertions are unreliable in Dalvik and unimplemented in ART. Use `BuildConfig.DEBUG` conditional checks instead."
+        category="Correctness"
+        priority="6"
+        summary="Assertions"
+        explanation="Assertions are not checked at runtime. There are ways to request that they be used by Dalvik \&#xA;(`adb shell setprop debug.assert 1`), but note that this is not implemented in ART (the newer \&#xA;runtime), and even in Dalvik the property is ignored in many places and can not be relied upon. \&#xA;Instead, perform conditional checking inside `if (BuildConfig.DEBUG) { }` blocks. That constant \&#xA;is a static final boolean which is true in debug builds and false in release builds, and the \&#xA;Java compiler completely removes all code inside the if-body from the app.&#xA;&#xA;For example, you can replace `assert speed > 0` with `if (BuildConfig.DEBUG &amp;&amp; !(speed > 0)) { \&#xA;throw new AssertionError() }`.&#xA;&#xA;(Note: This lint check does not flag assertions purely asserting nullness or non-nullness; these \&#xA;are typically more intended for tools usage than runtime checks.)"
+        url="https://code.google.com/p/android/issues/detail?id=65183"
+        urls="https://code.google.com/p/android/issues/detail?id=65183"
+        errorLine1="        assert (parent.right == node);"
+        errorLine2="        ~~~~~~">
+        <location
+            file="/Users/chenchangjun/MyOpenGitSouce/JJEvent/analytics_lib/src/main/java/com/ccj/client/android/analytics/net/gson/internal/LinkedTreeMap.java"
+            line="295"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="Assert"
+        severity="Warning"
+        message="Assertions are unreliable in Dalvik and unimplemented in ART. Use `BuildConfig.DEBUG` conditional checks instead."
+        category="Correctness"
+        priority="6"
+        summary="Assertions"
+        explanation="Assertions are not checked at runtime. There are ways to request that they be used by Dalvik \&#xA;(`adb shell setprop debug.assert 1`), but note that this is not implemented in ART (the newer \&#xA;runtime), and even in Dalvik the property is ignored in many places and can not be relied upon. \&#xA;Instead, perform conditional checking inside `if (BuildConfig.DEBUG) { }` blocks. That constant \&#xA;is a static final boolean which is true in debug builds and false in release builds, and the \&#xA;Java compiler completely removes all code inside the if-body from the app.&#xA;&#xA;For example, you can replace `assert speed > 0` with `if (BuildConfig.DEBUG &amp;&amp; !(speed > 0)) { \&#xA;throw new AssertionError() }`.&#xA;&#xA;(Note: This lint check does not flag assertions purely asserting nullness or non-nullness; these \&#xA;are typically more intended for tools usage than runtime checks.)"
+        url="https://code.google.com/p/android/issues/detail?id=65183"
+        urls="https://code.google.com/p/android/issues/detail?id=65183"
+        errorLine1="          assert (rightDelta == 1);"
+        errorLine2="          ~~~~~~">
+        <location
+            file="/Users/chenchangjun/MyOpenGitSouce/JJEvent/analytics_lib/src/main/java/com/ccj/client/android/analytics/net/gson/internal/LinkedTreeMap.java"
+            line="328"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="Assert"
+        severity="Warning"
+        message="Assertions are unreliable in Dalvik and unimplemented in ART. Use `BuildConfig.DEBUG` conditional checks instead."
+        category="Correctness"
+        priority="6"
+        summary="Assertions"
+        explanation="Assertions are not checked at runtime. There are ways to request that they be used by Dalvik \&#xA;(`adb shell setprop debug.assert 1`), but note that this is not implemented in ART (the newer \&#xA;runtime), and even in Dalvik the property is ignored in many places and can not be relied upon. \&#xA;Instead, perform conditional checking inside `if (BuildConfig.DEBUG) { }` blocks. That constant \&#xA;is a static final boolean which is true in debug builds and false in release builds, and the \&#xA;Java compiler completely removes all code inside the if-body from the app.&#xA;&#xA;For example, you can replace `assert speed > 0` with `if (BuildConfig.DEBUG &amp;&amp; !(speed > 0)) { \&#xA;throw new AssertionError() }`.&#xA;&#xA;(Note: This lint check does not flag assertions purely asserting nullness or non-nullness; these \&#xA;are typically more intended for tools usage than runtime checks.)"
+        url="https://code.google.com/p/android/issues/detail?id=65183"
+        urls="https://code.google.com/p/android/issues/detail?id=65183"
+        errorLine1="          assert (leftDelta == -1);"
+        errorLine2="          ~~~~~~">
+        <location
+            file="/Users/chenchangjun/MyOpenGitSouce/JJEvent/analytics_lib/src/main/java/com/ccj/client/android/analytics/net/gson/internal/LinkedTreeMap.java"
+            line="346"
+            column="11"/>
+    </issue>
+
+    <issue
+        id="Assert"
+        severity="Warning"
+        message="Assertions are unreliable in Dalvik and unimplemented in ART. Use `BuildConfig.DEBUG` conditional checks instead."
+        category="Correctness"
+        priority="6"
+        summary="Assertions"
+        explanation="Assertions are not checked at runtime. There are ways to request that they be used by Dalvik \&#xA;(`adb shell setprop debug.assert 1`), but note that this is not implemented in ART (the newer \&#xA;runtime), and even in Dalvik the property is ignored in many places and can not be relied upon. \&#xA;Instead, perform conditional checking inside `if (BuildConfig.DEBUG) { }` blocks. That constant \&#xA;is a static final boolean which is true in debug builds and false in release builds, and the \&#xA;Java compiler completely removes all code inside the if-body from the app.&#xA;&#xA;For example, you can replace `assert speed > 0` with `if (BuildConfig.DEBUG &amp;&amp; !(speed > 0)) { \&#xA;throw new AssertionError() }`.&#xA;&#xA;(Note: This lint check does not flag assertions purely asserting nullness or non-nullness; these \&#xA;are typically more intended for tools usage than runtime checks.)"
+        url="https://code.google.com/p/android/issues/detail?id=65183"
+        urls="https://code.google.com/p/android/issues/detail?id=65183"
+        errorLine1="        assert (delta == -1 || delta == 1);"
+        errorLine2="        ~~~~~~">
+        <location
+            file="/Users/chenchangjun/MyOpenGitSouce/JJEvent/analytics_lib/src/main/java/com/ccj/client/android/analytics/net/gson/internal/LinkedTreeMap.java"
+            line="361"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="CommitPrefEdits"
+        severity="Warning"
+        message="`SharedPreferences.edit()` without a corresponding `commit()` or `apply()` call"
+        category="Correctness"
+        priority="6"
+        summary="Missing `commit()` on `SharedPreference` editor"
+        explanation="After calling `edit()` on a `SharedPreference`, you must call `commit()` or `apply()` on the editor to save the results."
+        errorLine1="        preferences.edit().putString(SHAREDPREF_KEY, deviceId);"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~"
+        quickfix="studio">
+        <location
+            file="/Users/chenchangjun/MyOpenGitSouce/JJEvent/analytics_lib/src/main/java/com/ccj/client/android/analytics/utils/EDeviceUtils.java"
+            line="235"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="DefaultLocale"
+        severity="Warning"
+        message="Implicitly using the default locale is a common source of bugs: Use `toUpperCase(Locale)` instead. For strings meant to be internal use `Locale.ROOT`, otherwise `Locale.getDefault()`."
+        category="Correctness"
+        priority="6"
+        summary="Implied default locale in case conversion"
+        explanation="Calling `String#toLowerCase()` or `#toUpperCase()` **without specifying an explicit locale** is a common source of bugs. The reason for that is that those methods will use the current locale on the user&apos;s device, and even though the code appears to work correctly when you are developing the app, it will fail in some locales. For example, in the Turkish locale, the uppercase replacement for `i` is **not** `I`.&#xA;&#xA;If you want the methods to just perform ASCII replacement, for example to convert an enum name, call `String#toUpperCase(Locale.US)` instead. If you really want to use the current locale, call `String#toUpperCase(Locale.getDefault())` instead."
+        url="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        urls="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        errorLine1="        return androidId == null ? null : androidId.toUpperCase();"
+        errorLine2="                                                    ~~~~~~~~~~~">
+        <location
+            file="/Users/chenchangjun/MyOpenGitSouce/JJEvent/analytics_lib/src/main/java/com/ccj/client/android/analytics/utils/EDeviceUtils.java"
+            line="212"
+            column="53"/>
+    </issue>
+
+    <issue
+        id="DefaultLocale"
+        severity="Warning"
+        message="Implicitly using the default locale is a common source of bugs: Use `toUpperCase(Locale)` instead. For strings meant to be internal use `Locale.ROOT`, otherwise `Locale.getDefault()`."
+        category="Correctness"
+        priority="6"
+        summary="Implied default locale in case conversion"
+        explanation="Calling `String#toLowerCase()` or `#toUpperCase()` **without specifying an explicit locale** is a common source of bugs. The reason for that is that those methods will use the current locale on the user&apos;s device, and even though the code appears to work correctly when you are developing the app, it will fail in some locales. For example, in the Turkish locale, the uppercase replacement for `i` is **not** `I`.&#xA;&#xA;If you want the methods to just perform ASCII replacement, for example to convert an enum name, call `String#toUpperCase(Locale.US)` instead. If you really want to use the current locale, call `String#toUpperCase(Locale.getDefault())` instead."
+        url="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        urls="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        errorLine1="        return UUID.randomUUID().toString().replace(&quot;-&quot;, &quot;&quot;).toUpperCase();"
+        errorLine2="                                                             ~~~~~~~~~~~">
+        <location
+            file="/Users/chenchangjun/MyOpenGitSouce/JJEvent/analytics_lib/src/main/java/com/ccj/client/android/analytics/utils/EDeviceUtils.java"
+            line="222"
+            column="62"/>
+    </issue>
+
+    <issue
+        id="DefaultLocale"
+        severity="Warning"
+        message="Implicitly using the default locale is a common source of bugs: Use `toLowerCase(Locale)` instead. For strings meant to be internal use `Locale.ROOT`, otherwise `Locale.getDefault()`."
+        category="Correctness"
+        priority="6"
+        summary="Implied default locale in case conversion"
+        explanation="Calling `String#toLowerCase()` or `#toUpperCase()` **without specifying an explicit locale** is a common source of bugs. The reason for that is that those methods will use the current locale on the user&apos;s device, and even though the code appears to work correctly when you are developing the app, it will fail in some locales. For example, in the Turkish locale, the uppercase replacement for `i` is **not** `I`.&#xA;&#xA;If you want the methods to just perform ASCII replacement, for example to convert an enum name, call `String#toUpperCase(Locale.US)` instead. If you really want to use the current locale, call `String#toUpperCase(Locale.getDefault())` instead."
+        url="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        urls="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        errorLine1="                return new String(str).toLowerCase();"
+        errorLine2="                                       ~~~~~~~~~~~">
+        <location
+            file="/Users/chenchangjun/MyOpenGitSouce/JJEvent/analytics_lib/src/main/java/com/ccj/client/android/analytics/utils/EMD5Utils.java"
+            line="26"
+            column="40"/>
+    </issue>
+
+    <issue
+        id="DefaultLocale"
+        severity="Warning"
+        message="Implicitly using the default locale is a common source of bugs: Use `toUpperCase(Locale)` instead. For strings meant to be internal use `Locale.ROOT`, otherwise `Locale.getDefault()`."
+        category="Correctness"
+        priority="6"
+        summary="Implied default locale in case conversion"
+        explanation="Calling `String#toLowerCase()` or `#toUpperCase()` **without specifying an explicit locale** is a common source of bugs. The reason for that is that those methods will use the current locale on the user&apos;s device, and even though the code appears to work correctly when you are developing the app, it will fail in some locales. For example, in the Turkish locale, the uppercase replacement for `i` is **not** `I`.&#xA;&#xA;If you want the methods to just perform ASCII replacement, for example to convert an enum name, call `String#toUpperCase(Locale.US)` instead. If you really want to use the current locale, call `String#toUpperCase(Locale.getDefault())` instead."
+        url="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        urls="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        errorLine1="  String mn = &quot;is&quot; + fieldName.substring(0, 1).toUpperCase() + fieldName.substring(1);"
+        errorLine2="                                               ~~~~~~~~~~~">
+        <location
+            file="/Users/chenchangjun/MyOpenGitSouce/JJEvent/analytics_lib/src/main/java/com/ccj/client/android/analytics/db/utils/FieldUtils.java"
+            line="56"
+            column="48"/>
+    </issue>
+
+    <issue
+        id="DefaultLocale"
+        severity="Warning"
+        message="Implicitly using the default locale is a common source of bugs: Use `toUpperCase(Locale)` instead. For strings meant to be internal use `Locale.ROOT`, otherwise `Locale.getDefault()`."
+        category="Correctness"
+        priority="6"
+        summary="Implied default locale in case conversion"
+        explanation="Calling `String#toLowerCase()` or `#toUpperCase()` **without specifying an explicit locale** is a common source of bugs. The reason for that is that those methods will use the current locale on the user&apos;s device, and even though the code appears to work correctly when you are developing the app, it will fail in some locales. For example, in the Turkish locale, the uppercase replacement for `i` is **not** `I`.&#xA;&#xA;If you want the methods to just perform ASCII replacement, for example to convert an enum name, call `String#toUpperCase(Locale.US)` instead. If you really want to use the current locale, call `String#toUpperCase(Locale.getDefault())` instead."
+        url="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        urls="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        errorLine1="  String mn = &quot;set&quot; + fn.substring(0, 1).toUpperCase() + fn.substring(1);"
+        errorLine2="                                         ~~~~~~~~~~~">
+        <location
+            file="/Users/chenchangjun/MyOpenGitSouce/JJEvent/analytics_lib/src/main/java/com/ccj/client/android/analytics/db/utils/FieldUtils.java"
+            line="71"
+            column="42"/>
+    </issue>
+
+    <issue
+        id="DefaultLocale"
+        severity="Warning"
+        message="Implicitly using the default locale is a common source of bugs: Use `toUpperCase(Locale)` instead. For strings meant to be internal use `Locale.ROOT`, otherwise `Locale.getDefault()`."
+        category="Correctness"
+        priority="6"
+        summary="Implied default locale in case conversion"
+        explanation="Calling `String#toLowerCase()` or `#toUpperCase()` **without specifying an explicit locale** is a common source of bugs. The reason for that is that those methods will use the current locale on the user&apos;s device, and even though the code appears to work correctly when you are developing the app, it will fail in some locales. For example, in the Turkish locale, the uppercase replacement for `i` is **not** `I`.&#xA;&#xA;If you want the methods to just perform ASCII replacement, for example to convert an enum name, call `String#toUpperCase(Locale.US)` instead. If you really want to use the current locale, call `String#toUpperCase(Locale.getDefault())` instead."
+        url="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        urls="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        errorLine1="   mn = &quot;set&quot; + fn.substring(2, 3).toUpperCase() + fn.substring(3);"
+        errorLine2="                                   ~~~~~~~~~~~">
+        <location
+            file="/Users/chenchangjun/MyOpenGitSouce/JJEvent/analytics_lib/src/main/java/com/ccj/client/android/analytics/db/utils/FieldUtils.java"
+            line="73"
+            column="36"/>
+    </issue>
+
+    <issue
+        id="DefaultLocale"
+        severity="Warning"
+        message="Implicitly using the default locale is a common source of bugs: Use `toUpperCase(Locale)` instead. For strings meant to be internal use `Locale.ROOT`, otherwise `Locale.getDefault()`."
+        category="Correctness"
+        priority="6"
+        summary="Implied default locale in case conversion"
+        explanation="Calling `String#toLowerCase()` or `#toUpperCase()` **without specifying an explicit locale** is a common source of bugs. The reason for that is that those methods will use the current locale on the user&apos;s device, and even though the code appears to work correctly when you are developing the app, it will fail in some locales. For example, in the Turkish locale, the uppercase replacement for `i` is **not** `I`.&#xA;&#xA;If you want the methods to just perform ASCII replacement, for example to convert an enum name, call `String#toUpperCase(Locale.US)` instead. If you really want to use the current locale, call `String#toUpperCase(Locale.getDefault())` instead."
+        url="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        urls="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        errorLine1="  String mn = &quot;get&quot; + fieldName.substring(0, 1).toUpperCase() + fieldName.substring(1);"
+        errorLine2="                                                ~~~~~~~~~~~">
+        <location
+            file="/Users/chenchangjun/MyOpenGitSouce/JJEvent/analytics_lib/src/main/java/com/ccj/client/android/analytics/db/utils/FieldUtils.java"
+            line="95"
+            column="49"/>
+    </issue>
+
+    <issue
+        id="DefaultLocale"
+        severity="Warning"
+        message="Implicitly using the default locale is a common source of bugs: Use `toUpperCase(Locale)` instead. For strings meant to be internal use `Locale.ROOT`, otherwise `Locale.getDefault()`."
+        category="Correctness"
+        priority="6"
+        summary="Implied default locale in case conversion"
+        explanation="Calling `String#toLowerCase()` or `#toUpperCase()` **without specifying an explicit locale** is a common source of bugs. The reason for that is that those methods will use the current locale on the user&apos;s device, and even though the code appears to work correctly when you are developing the app, it will fail in some locales. For example, in the Turkish locale, the uppercase replacement for `i` is **not** `I`.&#xA;&#xA;If you want the methods to just perform ASCII replacement, for example to convert an enum name, call `String#toUpperCase(Locale.US)` instead. If you really want to use the current locale, call `String#toUpperCase(Locale.getDefault())` instead."
+        url="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        urls="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        errorLine1="  String mn = &quot;set&quot; + fn.substring(0, 1).toUpperCase() + fn.substring(1);"
+        errorLine2="                                         ~~~~~~~~~~~">
+        <location
+            file="/Users/chenchangjun/MyOpenGitSouce/JJEvent/analytics_lib/src/main/java/com/ccj/client/android/analytics/db/utils/FieldUtils.java"
+            line="108"
+            column="42"/>
+    </issue>
+
+    <issue
+        id="DefaultLocale"
+        severity="Warning"
+        message="Implicitly using the default locale is a common source of bugs: Use `toUpperCase(Locale)` instead. For strings meant to be internal use `Locale.ROOT`, otherwise `Locale.getDefault()`."
+        category="Correctness"
+        priority="6"
+        summary="Implied default locale in case conversion"
+        explanation="Calling `String#toLowerCase()` or `#toUpperCase()` **without specifying an explicit locale** is a common source of bugs. The reason for that is that those methods will use the current locale on the user&apos;s device, and even though the code appears to work correctly when you are developing the app, it will fail in some locales. For example, in the Turkish locale, the uppercase replacement for `i` is **not** `I`.&#xA;&#xA;If you want the methods to just perform ASCII replacement, for example to convert an enum name, call `String#toUpperCase(Locale.US)` instead. If you really want to use the current locale, call `String#toUpperCase(Locale.getDefault())` instead."
+        url="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        urls="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        errorLine1="            result = EMD5Utils.MD5(result).toUpperCase();"
+        errorLine2="                                           ~~~~~~~~~~~">
+        <location
+            file="/Users/chenchangjun/MyOpenGitSouce/JJEvent/analytics_lib/src/main/java/com/ccj/client/android/analytics/net/core/Request.java"
+            line="663"
+            column="44"/>
+    </issue>
+
+    <issue
+        id="DefaultLocale"
+        severity="Warning"
+        message="Implicitly using the default locale is a common source of bugs: Use `toUpperCase(Locale)` instead. For strings meant to be internal use `Locale.ROOT`, otherwise `Locale.getDefault()`."
+        category="Correctness"
+        priority="6"
+        summary="Implied default locale in case conversion"
+        explanation="Calling `String#toLowerCase()` or `#toUpperCase()` **without specifying an explicit locale** is a common source of bugs. The reason for that is that those methods will use the current locale on the user&apos;s device, and even though the code appears to work correctly when you are developing the app, it will fail in some locales. For example, in the Turkish locale, the uppercase replacement for `i` is **not** `I`.&#xA;&#xA;If you want the methods to just perform ASCII replacement, for example to convert an enum name, call `String#toUpperCase(Locale.US)` instead. If you really want to use the current locale, call `String#toUpperCase(Locale.getDefault())` instead."
+        url="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        urls="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        errorLine1="            sign.append(hex.toUpperCase());"
+        errorLine2="                            ~~~~~~~~~~~">
+        <location
+            file="/Users/chenchangjun/MyOpenGitSouce/JJEvent/analytics_lib/src/main/java/com/ccj/client/android/analytics/net/core/Request.java"
+            line="678"
+            column="29"/>
+    </issue>
+
+    <issue
+        id="DefaultLocale"
+        severity="Warning"
+        message="Implicitly using the default locale is a common source of bugs: Use `toUpperCase(Locale)` instead. For strings meant to be internal use `Locale.ROOT`, otherwise `Locale.getDefault()`."
+        category="Correctness"
+        priority="6"
+        summary="Implied default locale in case conversion"
+        explanation="Calling `String#toLowerCase()` or `#toUpperCase()` **without specifying an explicit locale** is a common source of bugs. The reason for that is that those methods will use the current locale on the user&apos;s device, and even though the code appears to work correctly when you are developing the app, it will fail in some locales. For example, in the Turkish locale, the uppercase replacement for `i` is **not** `I`.&#xA;&#xA;If you want the methods to just perform ASCII replacement, for example to convert an enum name, call `String#toUpperCase(Locale.US)` instead. If you really want to use the current locale, call `String#toUpperCase(Locale.getDefault())` instead."
+        url="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        urls="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        errorLine1="        value = value.toUpperCase();"
+        errorLine2="                      ~~~~~~~~~~~">
+        <location
+            file="/Users/chenchangjun/MyOpenGitSouce/JJEvent/analytics_lib/src/main/java/com/ccj/client/android/analytics/net/core/Request.java"
+            line="689"
+            column="23"/>
+    </issue>
+
+    <issue
+        id="DefaultLocale"
+        severity="Warning"
+        message="Implicitly using the default locale is a common source of bugs: Use `toLowerCase(Locale)` instead. For strings meant to be internal use `Locale.ROOT`, otherwise `Locale.getDefault()`."
+        category="Correctness"
+        priority="6"
+        summary="Implied default locale in case conversion"
+        explanation="Calling `String#toLowerCase()` or `#toUpperCase()` **without specifying an explicit locale** is a common source of bugs. The reason for that is that those methods will use the current locale on the user&apos;s device, and even though the code appears to work correctly when you are developing the app, it will fail in some locales. For example, in the Turkish locale, the uppercase replacement for `i` is **not** `I`.&#xA;&#xA;If you want the methods to just perform ASCII replacement, for example to convert an enum name, call `String#toUpperCase(Locale.US)` instead. If you really want to use the current locale, call `String#toUpperCase(Locale.getDefault())` instead."
+        url="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        urls="http://developer.android.com/reference/java/util/Locale.html#default_locale"
+        errorLine1="        strURL = strURL.trim().toLowerCase();"
+        errorLine2="                               ~~~~~~~~~~~">
+        <location
+            file="/Users/chenchangjun/MyOpenGitSouce/JJEvent/analytics_lib/src/main/java/com/ccj/client/android/analytics/net/core/Request.java"
+            line="728"
+            column="32"/>
+    </issue>
+
+    <issue
+        id="OldTargetApi"
+        severity="Warning"
+        message="Not targeting the latest versions of Android; compatibility &#xA;modes apply. Consider testing and updating this version. &#xA;Consult the android.os.Build.VERSION_CODES javadoc for details."
+        category="Correctness"
+        priority="6"
+        summary="Target SDK attribute is not targeting latest version"
+        explanation="When your application runs on a version of Android that is more recent than your `targetSdkVersion` specifies that it has been tested with, various compatibility modes kick in. This ensures that your application continues to work, but it may look out of place. For example, if the `targetSdkVersion` is less than 14, your app may get an option button in the UI.&#xA;&#xA;To fix this issue, set the `targetSdkVersion` to the highest available value. Then test your app to make sure everything works correctly. You may want to consult the compatibility notes to see what changes apply to each version you are adding support for: http://developer.android.com/reference/android/os/Build.VERSION_CODES.html"
+        url="http://developer.android.com/reference/android/os/Build.VERSION_CODES.html"
+        urls="http://developer.android.com/reference/android/os/Build.VERSION_CODES.html"
+        errorLine1="        targetSdkVersion 26"
+        errorLine2="        ~~~~~~~~~~~~~~~~~~~"
+        quickfix="studio">
+        <location
+            file="/Users/chenchangjun/MyOpenGitSouce/JJEvent/analytics_lib/build.gradle"
+            line="16"
+            column="9"/>
+    </issue>
+
+    <issue
+        id="SimpleDateFormat"
+        severity="Warning"
+        message="To get local formatting use `getDateInstance()`, `getDateTimeInstance()`, or `getTimeInstance()`, or use `new SimpleDateFormat(String template, Locale locale)` with for example `Locale.US` for ASCII dates."
+        category="Correctness"
+        priority="6"
+        summary="Implied locale in date format"
+        explanation="Almost all callers should use `getDateInstance()`, `getDateTimeInstance()`, or `getTimeInstance()` to get a ready-made instance of SimpleDateFormat suitable for the user&apos;s locale. The main reason you&apos;d create an instance this class directly is because you need to format/parse a specific machine-readable format, in which case you almost certainly want to explicitly ask for US to ensure that you get ASCII digits (rather than, say, Arabic digits).&#xA;&#xA;Therefore, you should either use the form of the SimpleDateFormat constructor where you pass in an explicit locale, such as Locale.US, or use one of the get instance methods, or suppress this error if really know what you are doing."
+        url="http://developer.android.com/reference/java/text/SimpleDateFormat.html"
+        urls="http://developer.android.com/reference/java/text/SimpleDateFormat.html"
+        errorLine1="      dateFormats.add(new SimpleDateFormat(datePattern));"
+        errorLine2="                      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/chenchangjun/MyOpenGitSouce/JJEvent/analytics_lib/src/main/java/com/ccj/client/android/analytics/net/gson/DefaultDateTypeAdapter.java"
+            line="72"
+            column="23"/>
+    </issue>
+
+    <issue
+        id="SimpleDateFormat"
+        severity="Warning"
+        message="To get local formatting use `getDateInstance()`, `getDateTimeInstance()`, or `getTimeInstance()`, or use `new SimpleDateFormat(String template, Locale locale)` with for example `Locale.US` for ASCII dates."
+        category="Correctness"
+        priority="6"
+        summary="Implied locale in date format"
+        explanation="Almost all callers should use `getDateInstance()`, `getDateTimeInstance()`, or `getTimeInstance()` to get a ready-made instance of SimpleDateFormat suitable for the user&apos;s locale. The main reason you&apos;d create an instance this class directly is because you need to format/parse a specific machine-readable format, in which case you almost certainly want to explicitly ask for US to ensure that you get ASCII digits (rather than, say, Arabic digits).&#xA;&#xA;Therefore, you should either use the form of the SimpleDateFormat constructor where you pass in an explicit locale, such as Locale.US, or use one of the get instance methods, or suppress this error if really know what you are doing."
+        url="http://developer.android.com/reference/java/text/SimpleDateFormat.html"
+        urls="http://developer.android.com/reference/java/text/SimpleDateFormat.html"
+        errorLine1="        SimpleDateFormat format = new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);"
+        errorLine2="                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/chenchangjun/MyOpenGitSouce/JJEvent/analytics_lib/src/main/java/com/ccj/client/android/analytics/EventDecorator.java"
+            line="189"
+            column="35"/>
+    </issue>
+
+    <issue
+        id="SimpleDateFormat"
+        severity="Warning"
+        message="To get local formatting use `getDateInstance()`, `getDateTimeInstance()`, or `getTimeInstance()`, or use `new SimpleDateFormat(String template, Locale locale)` with for example `Locale.US` for ASCII dates."
+        category="Correctness"
+        priority="6"
+        summary="Implied locale in date format"
+        explanation="Almost all callers should use `getDateInstance()`, `getDateTimeInstance()`, or `getTimeInstance()` to get a ready-made instance of SimpleDateFormat suitable for the user&apos;s locale. The main reason you&apos;d create an instance this class directly is because you need to format/parse a specific machine-readable format, in which case you almost certainly want to explicitly ask for US to ensure that you get ASCII digits (rather than, say, Arabic digits).&#xA;&#xA;Therefore, you should either use the form of the SimpleDateFormat constructor where you pass in an explicit locale, such as Locale.US, or use one of the get instance methods, or suppress this error if really know what you are doing."
+        url="http://developer.android.com/reference/java/text/SimpleDateFormat.html"
+        urls="http://developer.android.com/reference/java/text/SimpleDateFormat.html"
+        errorLine1="        SimpleDateFormat format = new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);"
+        errorLine2="                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/chenchangjun/MyOpenGitSouce/JJEvent/analytics_lib/src/main/java/com/ccj/client/android/analytics/EventDecorator.java"
+            line="245"
+            column="35"/>
+    </issue>
+
+    <issue
+        id="SimpleDateFormat"
+        severity="Warning"
+        message="To get local formatting use `getDateInstance()`, `getDateTimeInstance()`, or `getTimeInstance()`, or use `new SimpleDateFormat(String template, Locale locale)` with for example `Locale.US` for ASCII dates."
+        category="Correctness"
+        priority="6"
+        summary="Implied locale in date format"
+        explanation="Almost all callers should use `getDateInstance()`, `getDateTimeInstance()`, or `getTimeInstance()` to get a ready-made instance of SimpleDateFormat suitable for the user&apos;s locale. The main reason you&apos;d create an instance this class directly is because you need to format/parse a specific machine-readable format, in which case you almost certainly want to explicitly ask for US to ensure that you get ASCII digits (rather than, say, Arabic digits).&#xA;&#xA;Therefore, you should either use the form of the SimpleDateFormat constructor where you pass in an explicit locale, such as Locale.US, or use one of the get instance methods, or suppress this error if really know what you are doing."
+        url="http://developer.android.com/reference/java/text/SimpleDateFormat.html"
+        urls="http://developer.android.com/reference/java/text/SimpleDateFormat.html"
+        errorLine1=" public static final SimpleDateFormat SDF = new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);"
+        errorLine2="                                            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/chenchangjun/MyOpenGitSouce/JJEvent/analytics_lib/src/main/java/com/ccj/client/android/analytics/db/utils/FieldUtils.java"
+            line="41"
+            column="45"/>
+    </issue>
+
+    <issue
+        id="SimpleDateFormat"
+        severity="Warning"
+        message="To get local formatting use `getDateInstance()`, `getDateTimeInstance()`, or `getTimeInstance()`, or use `new SimpleDateFormat(String template, Locale locale)` with for example `Locale.US` for ASCII dates."
+        category="Correctness"
+        priority="6"
+        summary="Implied locale in date format"
+        explanation="Almost all callers should use `getDateInstance()`, `getDateTimeInstance()`, or `getTimeInstance()` to get a ready-made instance of SimpleDateFormat suitable for the user&apos;s locale. The main reason you&apos;d create an instance this class directly is because you need to format/parse a specific machine-readable format, in which case you almost certainly want to explicitly ask for US to ensure that you get ASCII digits (rather than, say, Arabic digits).&#xA;&#xA;Therefore, you should either use the form of the SimpleDateFormat constructor where you pass in an explicit locale, such as Locale.US, or use one of the get instance methods, or suppress this error if really know what you are doing."
+        url="http://developer.android.com/reference/java/text/SimpleDateFormat.html"
+        urls="http://developer.android.com/reference/java/text/SimpleDateFormat.html"
+        errorLine1="  private final DateFormat format = new SimpleDateFormat(&quot;MMM d, yyyy&quot;);"
+        errorLine2="                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/chenchangjun/MyOpenGitSouce/JJEvent/analytics_lib/src/main/java/com/ccj/client/android/analytics/net/gson/internal/bind/SqlDateTypeAdapter.java"
+            line="50"
+            column="37"/>
+    </issue>
+
+    <issue
+        id="SimpleDateFormat"
+        severity="Warning"
+        message="To get local formatting use `getDateInstance()`, `getDateTimeInstance()`, or `getTimeInstance()`, or use `new SimpleDateFormat(String template, Locale locale)` with for example `Locale.US` for ASCII dates."
+        category="Correctness"
+        priority="6"
+        summary="Implied locale in date format"
+        explanation="Almost all callers should use `getDateInstance()`, `getDateTimeInstance()`, or `getTimeInstance()` to get a ready-made instance of SimpleDateFormat suitable for the user&apos;s locale. The main reason you&apos;d create an instance this class directly is because you need to format/parse a specific machine-readable format, in which case you almost certainly want to explicitly ask for US to ensure that you get ASCII digits (rather than, say, Arabic digits).&#xA;&#xA;Therefore, you should either use the form of the SimpleDateFormat constructor where you pass in an explicit locale, such as Locale.US, or use one of the get instance methods, or suppress this error if really know what you are doing."
+        url="http://developer.android.com/reference/java/text/SimpleDateFormat.html"
+        urls="http://developer.android.com/reference/java/text/SimpleDateFormat.html"
+        errorLine1="  private final DateFormat format = new SimpleDateFormat(&quot;hh:mm:ss a&quot;);"
+        errorLine2="                                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/chenchangjun/MyOpenGitSouce/JJEvent/analytics_lib/src/main/java/com/ccj/client/android/analytics/net/gson/internal/bind/TimeTypeAdapter.java"
+            line="50"
+            column="37"/>
+    </issue>
+
+    <issue
+        id="HardwareIds"
+        severity="Warning"
+        message="Using `getString` to get device identifiers is not recommended."
+        category="Security"
+        priority="6"
+        summary="Hardware Id Usage"
+        explanation="Using these device identifiers is not recommended other than for high value fraud prevention and advanced telephony use-cases. For advertising use-cases, use `AdvertisingIdClient$Info#getId` and for analytics, use `InstanceId#getId`."
+        url="https://developer.android.com/training/articles/user-data-ids.html"
+        urls="https://developer.android.com/training/articles/user-data-ids.html"
+        errorLine1="        String androidId = Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);"
+        errorLine2="                           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~">
+        <location
+            file="/Users/chenchangjun/MyOpenGitSouce/JJEvent/analytics_lib/src/main/java/com/ccj/client/android/analytics/utils/EDeviceUtils.java"
+            line="211"
+            column="28"/>
+    </issue>
+
+    <issue
+        id="ObsoleteSdkInt"
+        severity="Warning"
+        message="Unnecessary; SDK_INT is always >= 15"
+        category="Performance"
+        priority="6"
+        summary="Obsolete SDK_INT Version Check"
+        explanation="This check flags version checks that are not necessary, because the `minSdkVersion` (or surrounding known API level) is already at least as high as the version checked for.&#xA;&#xA;Similarly, it also looks for resources in `-vNN` folders, such as `values-v14` where the version qualifier is less than or equal to the `minSdkVersion`, where the contents should be merged into the best folder."
+        errorLine1="            if (Build.VERSION.SDK_INT >= 9) {"
+        errorLine2="                ~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        quickfix="studio">
+        <location
+            file="/Users/chenchangjun/MyOpenGitSouce/JJEvent/analytics_lib/src/main/java/com/ccj/client/android/analytics/net/core/Tools/EVolley.java"
+            line="52"
+            column="17"/>
+    </issue>
+
+    <issue
+        id="ObsoleteSdkInt"
+        severity="Warning"
+        message="Unnecessary; SDK_INT is always >= 15"
+        category="Performance"
+        priority="6"
+        summary="Obsolete SDK_INT Version Check"
+        explanation="This check flags version checks that are not necessary, because the `minSdkVersion` (or surrounding known API level) is already at least as high as the version checked for.&#xA;&#xA;Similarly, it also looks for resources in `-vNN` folders, such as `values-v14` where the version qualifier is less than or equal to the `minSdkVersion`, where the contents should be merged into the best folder."
+        errorLine1="        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {"
+        errorLine2="            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
+        quickfix="studio">
+        <location
+            file="/Users/chenchangjun/MyOpenGitSouce/JJEvent/analytics_lib/src/main/java/com/ccj/client/android/analytics/net/core/NetworkDispatcher.java"
+            line="76"
+            column="13"/>
+    </issue>
+
+</issues>
