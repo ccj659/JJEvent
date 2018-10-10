@@ -1,11 +1,13 @@
 
-# JJ数据埋点SDK
+# JJEvent 数据埋点SDK
 
 
+[![License](https://img.shields.io/badge/license-Apache%202-green.svg)](https://www.apache.org/licenses/LICENSE-2.0)
+![](https://img.shields.io/travis/rust-lang/rust/master.svg)
+[![](https://img.shields.io/badge/release-1.0.0-brightgreen.svg)](https://github.com/ccj659/JJEvent/releases)
+[![Author](https://img.shields.io/badge/autor-ccj659-brightgreen.svg)](https://github.com/ccj659)
+![Platform](https://img.shields.io/badge/Platform-Android-brightgreen.svg)
 
-`version_name: 1.0`
-
-`autor: ccj659`
 
 # TO USE
 
