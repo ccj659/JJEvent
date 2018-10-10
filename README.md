@@ -1,4 +1,4 @@
-# JJEvent -- 一个经过测试和线上验证的Android客户端数据埋点SDK
+# JJEvent  一个可靠的Android端数据埋点SDK
 
 
 [![License](https://img.shields.io/badge/license-Apache%202-green.svg)](https://www.apache.org/licenses/LICENSE-2.0)
