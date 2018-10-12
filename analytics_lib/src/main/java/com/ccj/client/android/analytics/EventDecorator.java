@@ -36,7 +36,7 @@ class EventDecorator {
     private static  final AtomicInteger hitsCount=new AtomicInteger(0) ;//当前页面在一次访问中的第几次数据请求；与session_id关联，当session_id变化时重新计数，从1开始
 
     //MD5摘要，用于校验md5(dt+cid+type+salt)
-    private static String salt="d41d8cd98f00b204e9800998ecf8427e";
+    private static String salt="d41d8cd98f00b204e9800998ecf84";
 
 
     public static synchronized void initCookie(String cookieStr) {
@@ -144,7 +144,6 @@ class EventDecorator {
 
         }
 
-        //salt：d41d8cd98f00b204e9800998ecf8427e md5(ea+？+it+salt)
 
         bean.setM(EMD5Utils.MD5(bean.getEa()+"?"+bean.getIt()+salt));
         bean.setType(EConstant.EVENT_TYPE_EXPOSE);

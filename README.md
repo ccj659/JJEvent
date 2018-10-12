@@ -14,6 +14,7 @@
 
 -----
 
+- [本文是原理介绍](https://github.com/ccj659/JJEvent)
 - [这里是如何使用传送门](https://github.com/ccj659/JJEvent/blob/master/README_USE.md)
 - [这里是源码地址](https://github.com/ccj659/JJEvent)
 
@@ -24,6 +25,22 @@
 
 
 
+`V1.0.0`功能列表 | 是否支持 |
+--------|------|
+接口自定义 | 支持  |
+缓存策略 | 支持  |
+外部cookie注入 | 支持  |
+推送周期设定 | 支持 |
+强制推送 | 支持  |
+自定义埋点事件 | 支持  |
+独立运行 | 支持  |
+多线程写入 | 支持  |
+后台线程服务 | 支持  |
+
+
+注:**代码已经经过线上项目验证, 横向Google统计对比,统计数据无丢失,性能稳定.**
+
+
 ![jjEvent.gif](https://upload-images.jianshu.io/upload_images/1848340-6ffaee49dfa99be1.gif?imageMogr2/auto-orient/strip)
 
 
@@ -31,14 +48,17 @@
 
 ## 项目背景
 
-统计数据 是BI做大数据,智能推荐,千人千面,机器学习的 数据源和依据. 在这个或有资讯类app都是千人千面的时代, 一个可以根据BI部门的需求, 可以自有定制的 数据统计上报, 就显得非常重要.
+统计数据 是BI做大数据,智能推荐,千人千面,机器学习的 数据源和依据.
+在这个app都是千人千面,智能推荐,ab流量测试的时代, 一个可以根据BI部门的需求, 可以自有定制的 数据统计上报, 就显得非常重要.
 
 
 目前, 市面上 做统计的第三方平台有很多, 比如最出名的Google的GTM统计,友盟统计等等.
 
 但是 这些统计, 第一点,就是上传的频率,比较固定, 难以满足要求不同的频次需求. 第二点,需要统计到的字段和规则都是死板的,无法定制.
 
-目前GitHub上, 没有一个 自定义的 统计SDK 思路和源码, 我想,在这里分享下,我的思路和代码.
+目前GitHub上, 没有一个 自定义的 统计SDK 思路和源码.
+
+我想,在这里分享下,我的思路和代码.
 
 
 这里有几个要点
@@ -493,5 +513,5 @@ DBHelper中方法是静态的,由于依赖于其中Java静态方法,不能被静
 
 [简书：http://www.jianshu.com/u/94423b4ef5cf](http://www.jianshu.com/u/94423b4ef5cf)
 
-[github:  https//github.com/ccj659/](https//github.com/ccj659/)
+[github:  https//github.com/ccj659/](https://github.com/ccj659/)
 
