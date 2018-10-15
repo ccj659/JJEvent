@@ -38,7 +38,10 @@
 后台线程服务 | 支持  |
 
 
-注:**代码已经经过线上项目验证, 横向Google统计对比,统计数据无丢失,性能稳定.**
+注1:**代码已经经过线上项目验证, 横向Google统计对比,统计数据无丢失,性能稳定.**
+
+注2:**可修改数据库连接`EDBHelper`,作为`Java服务端埋点统计`使用.**
+
 
 
 ![jjEvent.gif](https://upload-images.jianshu.io/upload_images/1848340-6ffaee49dfa99be1.gif?imageMogr2/auto-orient/strip)

@@ -24,7 +24,7 @@ import java.util.concurrent.TimeUnit;
 public class JJPoolExecutor extends ThreadPoolExecutor {
 
     private static  final  int MAX_THREAD_COUNT=Runtime.getRuntime().availableProcessors()+1;
-    private static final int INIT_THREAD_COUNT = MAX_THREAD_COUNT;
+    private static final int INIT_THREAD_COUNT = 2;//TODO 核心线程数设置
     private static final long SURPLUS_THREAD_LIFE = 30L;
 
 
@@ -33,17 +33,25 @@ public class JJPoolExecutor extends ThreadPoolExecutor {
 
 //    private static JJPoolExecutor instance;
 
+    /**
+     * 关于如何设置参数, 这里有个明确的说明
+     * https://www.cnblogs.com/waytobestcoder/p/5323130.html
+     * @return
+     */
     public static JJPoolExecutor getInstance() {
         if (null == instance) {
             synchronized (JJPoolExecutor.class) {
                 if (null == instance) {
                     instance = new JJPoolExecutor(
-                            INIT_THREAD_COUNT,
+                            INIT_THREAD_COUNT,//为了减少开支, 让核心线程为2, 当需要的时候 重新创建线程 //当线程空闲时间达到keepAliveTime时，线程会退出，直到线程数量=corePoolSize
                             MAX_THREAD_COUNT,
                             SURPLUS_THREAD_LIFE,
                             TimeUnit.SECONDS,
                             new LinkedBlockingQueue<Runnable>(),
                             new DefaultThreadFactory());
+
+                    instance.allowCoreThreadTimeOut(true);//allowCoreThreadTimeout=true，则会直到线程数量=0
+
                 }
             }
         }
