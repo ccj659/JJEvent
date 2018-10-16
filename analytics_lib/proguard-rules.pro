@@ -88,38 +88,38 @@
 }
 
 
-#-keep class com.smzdm.client.android.analytics.net.gson.**{*;}
-#-keep class com.smzdm.client.android.analytics.net.core.**{*;}
-#-keep class com.smzdm.client.android.analytics.db.dbcore.**{*;}
+#-keep class com.ccj.client.android.analytics.net.gson.**{*;}
+#-keep class com.ccj.client.android.analytics.net.core.**{*;}
+#-keep class com.ccj.client.android.analytics.db.dbcore.**{*;}
 
-#-keep class com.smzdm.client.android.analytics.callback.**{*;}
-
-
-#-keep class com.smzdm.client.android.analytics.**
+#-keep class com.ccj.client.android.analytics.callback.**{*;}
 
 
-#-keep class com.smzdm.client.android.analytics.JJEventManager* { *; }
+#-keep class com.ccj.client.android.analytics.**
 
--keep class com.smzdm.client.android.analytics.bean.**{*;}
--keep class com.smzdm.client.android.analytics.exception.**{*;}
--keep class com.smzdm.client.android.analytics.enums.**{*;}
 
--keep public class com.smzdm.client.android.analytics.ZDMEventManager* {
+#-keep class com.ccj.client.android.analytics.JJEventManager* { *; }
+
+-keep class com.ccj.client.android.analytics.bean.**{*;}
+-keep class com.ccj.client.android.analytics.exception.**{*;}
+-keep class com.ccj.client.android.analytics.enums.**{*;}
+
+-keep public class com.ccj.client.android.analytics.JJEventManager* {
       public protected *;
 }
 
--keep public class com.smzdm.client.android.analytics.ZDMEvent* {
+-keep public class com.ccj.client.android.analytics.JJEvent* {
      public protected *;
 }
 
--keep public class com.smzdm.client.android.analytics.enums.LTPType* {
+-keep public class com.ccj.client.android.analytics.enums.LTPType* {
       public protected *;
 }
 
-#-keepclasseswithmembers public class com.smzdm.client.android.analytics.ZDMEvent***
+#-keepclasseswithmembers public class com.ccj.client.android.analytics.JJEvent***
 
-#-keepclassmembernames public class com.smzdm.client.android.analytics.ZDMEvent {
+#-keepclassmembernames public class com.ccj.client.android.analytics.JJEvent {
 #public *;
 #}
 
-#-keepnames class com.smzdm.client.android.analytics.ZDMEvent{ ;}
+#-keepnames class com.ccj.client.android.analytics.JJEvent{ ;}

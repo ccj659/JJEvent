@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
                 Map ecp = new HashMap();
                 ecp.put("自定义key1", "自定义value1");
                 ecp.put("自定义key2", "自定义value2");
-                ZDMEvent.expose("ss", "首页", "点击" + "button" + (++i), ecp);*/
+                JJEvent.expose("ss", "首页", "点击" + "button" + (++i), ecp);*/
             }
         });
 

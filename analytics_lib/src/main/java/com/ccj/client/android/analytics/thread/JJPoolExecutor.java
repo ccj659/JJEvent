@@ -63,7 +63,7 @@ public class JJPoolExecutor extends ThreadPoolExecutor {
         super(corePoolSize, maximumPoolSize, keepAliveTime, unit, workQueue, threadFactory, new RejectedExecutionHandler() {
             @Override
             public void rejectedExecution(Runnable r, ThreadPoolExecutor executor) {
-                ELogger.logError("ZDM Event-->", "Task rejected, too many task!");
+                ELogger.logError("JJEvent-->", "Task rejected, too many task!");
                 //executor.execute(r);
             }
         });

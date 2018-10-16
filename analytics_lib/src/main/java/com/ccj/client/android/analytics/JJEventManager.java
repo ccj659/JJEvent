@@ -30,7 +30,7 @@ public final class JJEventManager {
      */
     public static Context getContext() {
         if (app == null) {
-            throw new EventException("请先在application中实例化ZDMEventManager");
+            throw new EventException("请先在application中实例化JJEventManager");
         }
         return app;
     }
@@ -77,7 +77,7 @@ public final class JJEventManager {
             EventDecorator.initCookie(cookie);
 
             ELogger.logWrite(EConstant.TAG, " JJEventManager run  on thread-->" + Thread.currentThread().getName());
-            ELogger.logWrite(TAG, "----ZDMEvent sdk init  success!----");
+            ELogger.logWrite(TAG, "----JJEvent sdk init  success!----");
 
 
     }
@@ -106,7 +106,7 @@ public final class JJEventManager {
         hasInit = false;//变为 可初始化
         EConstant.SWITCH_OFF = true;//关闭一切统计事务
         EPushService.getSingleInstance().stopEventService();
-        ELogger.logWrite(EConstant.TAG, " ----ZDMEvent sdk is destoryEventService!---");
+        ELogger.logWrite(EConstant.TAG, " ----JJEvent sdk is destoryEventService!---");
 
     }
 
@@ -117,7 +117,7 @@ public final class JJEventManager {
     public static void cancelEventPush() {
         hasInit = false;//变为 可初始化
         EPushService.getSingleInstance().stopEventService();
-        ELogger.logWrite(EConstant.TAG, " ----ZDMEvent sdk is cancelEventPush---");
+        ELogger.logWrite(EConstant.TAG, " ----JJEvent sdk is cancelEventPush---");
 
     }
 

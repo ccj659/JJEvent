@@ -25,7 +25,7 @@ import java.util.Locale;
 
 /** Logging helper class. */
 public class VolleyLog {
-    public static String TAG = "ZDMEvent PushRequest";
+    public static String TAG = "JJEvent PushRequest";
 
     public static boolean DEBUG = Log.isLoggable(TAG, Log.VERBOSE);
 

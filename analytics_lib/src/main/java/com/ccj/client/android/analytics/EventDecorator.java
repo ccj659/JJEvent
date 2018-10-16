@@ -153,7 +153,7 @@ class EventDecorator {
     static synchronized void pushEventByNum() {
         EventDecorator.addEventNum();
         if (EventDecorator.getEventNum() >= EConstant.PUSH_CUT_NUMBER) { //当满足连续操作大于100条,就进行上传服务
-            //  ZDMEventService.pushEvent();
+            //  JJEventService.pushEvent();
             EPushService.getSingleInstance().excutePushEvent();
             EventDecorator.clearEventNum();
             ELogger.logWrite(EConstant.TAG, "当满足连续操作大于" + EConstant.PUSH_CUT_NUMBER + "条,就进行上传服务");

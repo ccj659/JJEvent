@@ -115,7 +115,7 @@ public class HurlStack implements HttpStack {
             if (request.getBody() != null) {
                 postParams = "?" + new String(request.getBody());
             }
-            ELogger.logWrite("ZDM Event-->", request.getMethod() + " " + url + postParams);
+            ELogger.logWrite("JJEvent-->", request.getMethod() + " " + url + postParams);
         }
         URL parsedUrl = new URL(url);
         HttpURLConnection connection = openConnection(parsedUrl, request);

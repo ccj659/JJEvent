@@ -20,7 +20,7 @@ public class DefaultThreadFactory implements ThreadFactory {
     public DefaultThreadFactory() {
         SecurityManager s = System.getSecurityManager();
         group = Thread.currentThread().getThreadGroup();
-        namePrefix = "ZDMEvent task pool No." + poolNumber.getAndIncrement() + ", thread No.";
+        namePrefix = "JJEvent task pool No." + poolNumber.getAndIncrement() + ", thread No.";
     }
 
     public Thread newThread( Runnable runnable) {

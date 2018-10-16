@@ -79,7 +79,6 @@ public class EDeviceUtils {
             return "";
         }
 
-        //V6.0以后添加smzdmapp这部分后缀
         String result = "app_jj";
         try {
             String packageName = context.getPackageName();
@@ -158,7 +157,7 @@ public class EDeviceUtils {
             PackageInfo packageInfo = packageManager.getPackageInfo(context.getPackageName(), 0);
             versionCode = packageInfo.versionCode;
         } catch (PackageManager.NameNotFoundException e) {
-            Log.e("ZDM Event-->", "Cannot get app version name", e);
+            Log.e("JJEvent-->", "Cannot get app version name", e);
         }
         return versionCode;
     }
