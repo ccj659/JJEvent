@@ -1,5 +1,7 @@
 package com.ccj.client.android.analytics;
 
+import android.content.Context;
+
 import com.ccj.client.android.analytics.utils.EDeviceUtils;
 
 import java.util.List;
@@ -21,9 +23,13 @@ import java.util.List;
         ELogger.logError(EConstant.TAG, "timer schedule pushEvent is start-->" + cut_point_date);
         ELogger.logWrite(EConstant.TAG, " timer schedule pushEvent run  on thread-->"+Thread.currentThread().getName());
 
-
+        Context context =JJEventManager.getContext();
+        if (context==null){
+            ELogger.logWrite(EConstant.TAG, " JJEventManager.getContext() 为空,返回");
+            return;
+        }
         //1.判断网络状况是否良好
-        if (!EDeviceUtils.isNetworkConnected(JJEventManager.getContext())) {
+        if (!EDeviceUtils.isNetworkConnected(context)) {
             ELogger.logWrite(EConstant.TAG, " timer schedule 判断网络状况是否良好,网络未连接,返回");
 
             return;

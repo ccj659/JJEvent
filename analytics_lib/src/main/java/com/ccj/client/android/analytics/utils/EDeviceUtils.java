@@ -75,8 +75,12 @@ public class EDeviceUtils {
      * @return
      */
     public static String getUserAgent(Context context) {
+        if (context==null){
+            return "";
+        }
+
         //V6.0以后添加smzdmapp这部分后缀
-        String result = "smzdm_android_V%s rv:%s (%s;Android%s;%s)smzdmapp";
+        String result = "app_jj";
         try {
             String packageName = context.getPackageName();
             String versionName = context.getPackageManager().getPackageInfo(
