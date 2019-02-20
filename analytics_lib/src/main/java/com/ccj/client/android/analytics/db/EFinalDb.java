@@ -409,7 +409,11 @@ public class EFinalDb {
         return tableIsExist(TableInfo.get(clazz));
     }
 
-    public void exeSqlInfo(SqlInfo sqlInfo) {
+    /**
+     * 为了保证 正在读取数据时,不进行写入操作, 引起这条数据的丢失.需要对数据库操作进行,同步处理.
+     * @param sqlInfo
+     */
+    public synchronized void exeSqlInfo(SqlInfo sqlInfo) {
         if (sqlInfo != null) {
             debugSql(sqlInfo.getSql());
             db.execSQL(sqlInfo.getSql(), sqlInfo.getBindArgsAsArray());

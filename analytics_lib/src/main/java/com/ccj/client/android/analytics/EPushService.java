@@ -1,5 +1,7 @@
 package com.ccj.client.android.analytics;
 
+import com.ccj.client.android.analytics.thread.JJPoolExecutor;
+
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -47,13 +49,20 @@ import static com.ccj.client.android.analytics.EConstant.SWITCH_OFF;
 
     /**
      * 主动调用push操作,运行在主线程中.
+     * 在执行数据库操作,可能存在数据库操作同步等待,堵塞主线程的情况,将所有数据操作放入子线程中
+     *
      */
     public void excutePushEvent() {
-        if (SWITCH_OFF) {
-            ELogger.logWrite(EConstant.TAG, " excutePushEvent  is SWITCH_OFF,please check SWITCH_OFF is true or false!");
-            return;
-        }
-        EPushTask.pushEvent();
+        JJPoolExecutor.getInstance().execute(new Runnable() {
+            @Override
+            public void run() {
+                if (SWITCH_OFF) {
+                    ELogger.logWrite(EConstant.TAG, " excutePushEvent  is SWITCH_OFF,please check SWITCH_OFF is true or false!");
+                    return;
+                }
+                EPushTask.pushEvent();
+            }
+        });
     }
 
 
