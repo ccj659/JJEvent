@@ -1,6 +1,7 @@
 # JJEvent  一个可靠的Android端数据埋点SDK
 
 
+
 [![License](https://img.shields.io/badge/license-Apache%202-green.svg)](https://www.apache.org/licenses/LICENSE-2.0)
 ![](https://img.shields.io/travis/rust-lang/rust/master.svg)
 [![](https://img.shields.io/badge/release-1.0.0-brightgreen.svg)](https://github.com/ccj659/JJEvent/releases)
@@ -13,6 +14,9 @@
 
 
 -----
+
+闭源之前stars:536 forks:34(经过一段时间调整修改,重新开源) 一个经过充分测试和线上验证的Android客户端自定义数据埋点SDK,欢迎大家一起交流
+
 
 - [本文是原理介绍](https://github.com/ccj659/JJEvent)
 - [这里是如何使用传送门](https://github.com/ccj659/JJEvent/blob/master/README_USE.md)
